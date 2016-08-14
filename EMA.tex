@@ -1,0 +1,440 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{siunitx}
+\usepackage{mathtools} %for delimiters
+\usepackage{braket}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\sisetup{
+    %output-decimal-marker={,}% just uncomment if you want to use comma as the decimal marker!
+}
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{
+\normalfont \normalsize
+\textsc{The Open University} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge SMT358 Tutor-Marked Assignment 02 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{William Ockmore} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section{Question One}
+
+\subsection{Part a}
+Operators on the right take precedence, and the result of the lowering operator $\hat{\textrm{A}}$ on the ground state of a quantum harmonic oscillator $\psi_0$ is always zero, by the definition of the energy eigenfunctions.
+
+\begin{align}
+\psi_0 (x) =
+\left(\frac{1}{\sqrt{\pi}a}\right)^{\frac{1}{2}}
+e^{\frac{-x^2}{2a^2}}
+\end{align}
+
+\begin{align}
+\hat{\textrm{A}}\psi_0 (x) = 0
+\end{align}
+
+As all operators following the furthest right operate on successive results of the previous operators, all such arrangements with the lowering operator on the furthest right, operating on the ground state, must return zero.
+
+\subsection{Part b}
+The expectation values of any quantum mechanical operator $\hat{\textrm{A}}$ are given by the sandwich integral
+
+\begin{align}
+\langle \textrm{A} \rangle =
+\int\limits_{-\infty}^{\infty}\Psi^*\left(x,t\right) \hat{\textrm{A}} \Psi\left(x,t\right) \mathrm{d}x
+\end{align}
+
+In the present case this can be reduced to
+
+\begin{align}
+\langle \textrm{A} \rangle =
+\int\limits_{-\infty}^{\infty}\psi^*_n\left(x\right) \hat{\textrm{A}} \psi_n\left(x\right) \mathrm{d}x
+\end{align}
+
+Where $\hat{\textrm{A}}$ is some combination of raising and lowering operators. With $\psi_n(x)$ representing the energy eigenfunction with quantum number $n$. If there are unequal numbers of raising and lowering operators in a term, then the resulting eigenfunction $\psi_m(x)$ will have $m \neq n$, and due to orthnormality the result must be equal to zero.
+
+\subsection{Part c}
+There are three separate operator components in the integral:\begin{itemize}
+\item{
+ $\hat{\textrm{A}}\hat{\textrm{A}}
+\hat{\textrm{A}}^{\dagger}\hat{\textrm{A}}^{\dagger}$
+which has eigenvalue $\sqrt{n+1}\times \sqrt{n+2}\times \sqrt{n+2}\times \sqrt{n+1}$}
+\item{
+$\hat{\textrm{A}}\hat{\textrm{A}}^{\dagger}
+\hat{\textrm{A}}\hat{\textrm{A}}^{\dagger}$
+which has eigenvalue $\sqrt{n+1}\times \sqrt{n+1}\times \sqrt{n+1}\times \sqrt{n+1}$}
+\item{
+$\hat{\textrm{A}}^{\dagger}\hat{\textrm{A}}
+\hat{\textrm{A}}\hat{\textrm{A}}^{\dagger}$
+which has eigenvalue $\sqrt{n+1}\times \sqrt{n+1}\times \sqrt{n}\times \sqrt{n+1}$}
+
+\end{itemize}
+
+
+Where $n$ is the original quantum number of the energy eigenvalue in the integral.
+
+
+From this it can be seen that the numerical factor produced by the operators is $\sqrt{4} \times \sqrt{1} \times 0$, which is equal to $3$.
+
+Taking the factor outside the integral we are left with
+
+\begin{align}
+\langle p^4_x \rangle = \frac{3\hbar^4}{4a^4}
+\left[\int\limits_{-\infty}^{\infty}\psi^*_n\left(x\right) \psi_n\left(x\right) \mathrm{d}x \right] = \frac{3\hbar^4}{4a^2}
+\end{align}
+
+\subsection{Part d}
+The expression for kinetic energy is
+\begin{align}
+E_{\textrm{kin}} = \frac{p^2_x}{2m}
+\end{align}
+And the operator is $\frac{\hat{p}^2_x}{2m}$. The corresponding relationship for the uncertainty is
+\begin{align}
+\Delta E_{\textrm{kin}} = \sqrt{\langle E_{\textrm{kin}}^2\rangle - \langle E_{\textrm{kin}}\rangle^2}
+\end{align}
+The uncertainty in kinetic energy is therefore given by
+
+\begin{align}
+\Delta E_{\textrm{kin}} = \frac{1}{2m}\sqrt{\langle p^4_x \rangle - \langle p^2_x \rangle^2}
+\end{align}
+
+The right hand side of the equation then becomes
+
+\begin{align}
+\frac{1}{2m} \sqrt{\frac{3\hbar^4}{4a^4} - \frac{\hbar^4}{4a^4}}
+= \frac{\hbar^2}{2\sqrt{2}ma^2}
+\end{align}
+
+Following from the relation $\frac{\hbar^2}{2m} = \frac{1}{2} \hbar \omega_0 a^2$, it can now be shown that
+
+\begin{align}
+\Delta E_{\textrm{kin}} = \frac{1}{2\sqrt{2}}\hbar \omega_0
+= \frac{E_0}{\sqrt{2}}
+\end{align}
+
+\section{Question Two}
+\subsection{Part a}
+The wave function in the question is a linear combination of products of functions of position and time, or stationary states. The time dependent phase factors are of the form $T(t) = e^{-iEt/\hbar}$, and the full time-dependent wave function can be written as
+
+
+\begin{align}
+\Psi(x,t) = \frac{1}{\sqrt{2}}
+\left(\psi_1(x)e^{-iE_1t/\hbar} - \psi_3(x)e^{-iE_3t/\hbar}\right)
+\end{align}
+
+When looking at a harmonic oscillator the energy levels can be expressed as $E_n = (n+\frac{1}{2})\hbar \omega_0$,
+and so the wave function becomes
+
+\begin{align}
+\Psi(x,t) = \frac{1}{\sqrt{2}}
+\left(\psi_1(x)e^{-3i\omega_0t/2} - \psi_3(x)e^{-7i\omega_0t/2}\right)
+\end{align}
+
+\subsection{Part b}
+As the energy eigenfunctions are real, $\psi^*_n(x) = \psi_n(x)$ for both. Hence the expression for $\Psi^*(x,t)$ is
+
+\begin{align}
+\Psi^*(x,t) = \frac{1}{\sqrt{2}}
+\left(\psi_1(x)e^{+3i\omega_0t/2} - \psi_3(x)e^{+7i\omega_0t/2}\right)
+\end{align}
+
+Born's rule gives probability density as
+
+\begin{align}
+\abs{\Psi(x,t)}^2 = \Psi^*(x,t)\Psi(x,t)
+\end{align}
+
+Which for the wave function in question comes out as
+
+\begin{align}
+\abs{\Psi(x,t)}^2 = \frac{1}{2}\left[\psi_1^*(x)\psi_1(x) + \psi_3^*(x)\psi_3(x) +
+\psi_1^*(x)\psi_3(x)e^{-2i\omega_0t} +
+\psi_3^*(x)\psi_1(x)e^{+2i\omega_0t}
+\right]
+\end{align}
+
+\subsection{Part c}
+As both the eigenfunctions are odd functions, then both $\Psi(x,t)$ and $\Psi^*(x,t)$ must also be odd.
+The expectation value $\langle x\rangle$ is given by the sandwich integral of its operator $\hat{x}$, which is just $x$.
+
+\begin{align}
+\langle x \rangle =
+\int\limits_{-\infty}^{\infty}\Psi^*\left(x,t\right)x \Psi\left(x,t\right) \mathrm{d}x
+\end{align}
+
+As the integral is the product of three odd functions, it mus be equal to zero as it is symmetric about the origin, and this is true at all times.
+
+There is a different approach that can be taken; as the situation in question is a harmonic oscillator, $\hat{x}$ can be alternatively expressed as
+
+\begin{align}
+\hat{x} = \frac{a}{\sqrt{2}} \left( \hat{\mathrm{A}}+\hat{\mathrm{A}}^{\dagger}\right)
+\end{align}
+
+Which, when acting on a linear combination of $\psi_1(x)$ and $\psi_3(x)$, will produce a linear combination of $\psi_0(x)$, $\psi_2(x)$ and $\psi_4(x)$, which is orthogonal to the original function; again leaving the result as $\langle x \rangle = 0$.
+
+\subsection{Part d}
+The period of the breathing oscillations is $T = \frac{2\pi}{\omega_0}$.
+
+\section{Question 3}
+\subsection{Part a}
+The wavenumbers $k_1$ and $k_2$ correspond to the region where the potential is zero ($x<0$ and $x>L$) and the region where the potential is $V_0$ ($0\leq x \leq L$) respectively.
+
+We know that $E_0 = 2V_0$, so:
+
+\begin{align}
+\begin{split}
+k_1 &=\frac{2\sqrt{mV_0}}{\hbar} \\
+\end{split}
+\quad
+\begin{split}
+k_2 = \frac{\sqrt{2mV_0}}{\hbar} \\
+\end{split}
+\end{align}
+
+\subsection{Part b}
+As the potential energy function is finite everywhere, $\psi(x)$ and $\frac{\mathrm{d}\psi}{\mathrm{d}x}$ must be continuous everywhere. Continuity at $x=0$ implies
+
+\begin{align}
+A+B=C+D
+\end{align}
+\begin{align}
+ik_1A-ik_1B=ik_2C-ik_2D \quad \Rightarrow \quad
+k_1(A-B) = k_2(C-D)
+\end{align}
+
+And continuity at $x=L$ implies
+
+\begin{align}
+Ce^{ik_2L}+De^{-ik_2L} = Fe^{ik_1L}
+\end{align}
+\begin{align}
+ik_2Ce^{ik_2L}-ik_2De^{-ik_2L} = ik_1Fe^{ik_1L} \quad
+\Rightarrow \quad k_2\left(Ce^{ik_2L}-De^{-ik_2L}\right)
+=k_1Fe^{ik_1L}
+\end{align}
+
+\subsection{Part c}
+Dividing equation 3.2 by 3.3 we find
+
+\begin{align}
+\frac{A+B}{A-B} = \frac{k_1}{k_2}\frac{C+D}{C-D}
+\end{align}
+
+Making use of the special case where $k_2L = \pi/2$, equation 3.4 becomes
+\begin{align}
+i(C-D)=Fe^{ik_1L}
+\end{align}
+Similarly for equation 3.5,
+\begin{align}
+-k_2(C+D) = ik_1Fe^{ik_1L} \quad \Rightarrow \quad
+-\frac{k_2}{ik_1}(C+D) = Fe^{ik_1L}
+\end{align}
+
+Dividing 3.7 by 3.8, we gain the following result:
+\begin{align}
+\frac{k_1}{k_2}\frac{C-D}{C+D} = 1 \quad \Rightarrow \quad
+\frac{k_1}{k_2} = \frac{C+D}{C-D}
+\end{align}
+Using this, the substitution can be made into 3.6.
+\begin{align}
+\frac{A+B}{A-B} = \frac{k_1}{k_2}\frac{C+D}{C-D} = \frac{k_1^2}{k_2^2}
+\end{align}
+
+In part a., it was clear that $k_1 = \sqrt{2}k_2$, which can also be expressed as $k_1/k_2 = \sqrt{2}$. This leads simply on to
+\begin{align}
+\frac{A+B}{A-B} = 2 \quad \Rightarrow \quad A = 3B
+\end{align}
+
+The constants $A$ and $B$ are related to the reflection coefficient of the beam $R$ as
+\begin{align}
+R = \abs{\frac{B}{A}}^2 = \frac{1}{9}
+\end{align}
+It is defined that
+\begin{align}
+R + T = 1
+\end{align}
+
+Therefore the transmission coefficient $T$ must be equal to $8/9$.
+
+\section{Question Four}
+\subsection{Part a}
+In Dirac notation an expectation value for a Hermitian operator $\hat{\mathrm{B}}$ is expressed as
+
+\begin{align}
+\Braket{\mathrm{B}}
+= \Braket{\Psi|\hat{\mathrm{B}}\Psi}
+\end{align}
+
+Also, for any Hermitian operator,
+
+\begin{align}
+\begin{split}
+\Braket{\Psi|\hat{\mathrm{B}}\Psi} &= \Bra{\Psi}\hat{\mathrm{B}}\Ket{\Psi} \\
+&=\Braket{\hat{\mathrm{B}}\Psi|\Psi}
+\end{split}
+\end{align}
+
+The expectation value of $\mathrm{B}^2$ is given by
+\begin{align}
+\Braket{\mathrm{B}^2} = \Braket{\Psi|\hat{\mathrm{B}}^2\Psi}
+\end{align}
+
+$\hat{\mathrm{B}}^2 = \hat{\mathrm{B}}\hat{\mathrm{B}}$, so 4.3 can be rewritten as
+
+\begin{align}
+\begin{split}
+\Braket{\mathrm{B}^2} &= \Braket{\Psi|\hat{\mathrm{B}}\hat{\mathrm{B}}\Psi} \\
+&=\Bra{\Psi}\hat{\mathrm{B}}\Ket{\hat{\mathrm{B}}\Psi} \\
+&=\Braket{\hat{\mathrm{B}}\Psi|\hat{\mathrm{B}}\Psi}
+\end{split}
+\end{align}
+
+The operator corresponding to kinetic energy is $\frac{\hat{\mathrm{p}}_x^2}{2m}$. Using the fact that any scalar factor can be taken outside of Dirac brackets, the expectation value for kinetic energy is given by
+\begin{align}
+\Braket{E_{\mathrm{kin}}} =\frac{1}{2m} \Braket{\Psi|\hat{\mathrm{p}}_x^2\Psi}
+\end{align}
+
+Using identical logic to the above set of steps, the relation becomes
+
+\begin{align}
+\Braket{E_{\mathrm{kin}}} = \frac{1}{2m}\Braket{\hat{\mathrm{p}}_x\Psi|\hat{\mathrm{p}}_x\Psi}
+\end{align}
+
+\subsection{Part b}
+Rewriting the Dirac bracket in its integral form gives
+\begin{align}
+\begin{split}
+\Braket{\hat{\mathrm{p}}_x\Psi|\hat{\mathrm{p}}_x\Psi}
+&= \int\limits_{-\infty}^{\infty}\left(-i\hbar\frac{\partial\Psi}{\partial x}\right)^*\left(-i\hbar\frac{\partial\Psi}{\partial x}\right) \mathrm{d}x \\
+&= \hbar^2\int\limits_{-\infty}^{\infty}\left(\frac{\partial\Psi}{\partial x}\right)^*\left(\frac{\partial\Psi}{\partial x}\right) \mathrm{d}x \\
+&= \hbar^2\int\limits_{-\infty}^{\infty}\abs{\frac{\partial\Psi}{\partial x}}^2 \mathrm{d}x \\
+\end{split}
+\end{align}
+
+So $\Braket{E_{\mathrm{kin}}}$ can be written as
+\begin{align}
+\Braket{E_{\mathrm{kin}}} = \frac{\hbar^2}{2m}\int\limits_{-\infty}^{\infty}\abs{\frac{\partial\Psi}{\partial x}}^2 \mathrm{d}x
+\end{align}
+
+Due to the modulus, this integral, and therefore the expectation value, cannot be negative; it must be positive and real-valued everywhere.
+
+\subsection{Part c}
+If the ket vector is defined as
+\begin{align}
+\Ket{\hat{\mathrm{p}}_x\Psi} = \sum_{n}c_n\Ket{\phi_n}
+\end{align}
+
+Then the corresponding bra vector must be equal to
+
+\begin{align}
+\Bra{\hat{\mathrm{p}}_x\Psi} = \sum_{n}c_n^*\Bra{\phi_n}
+\end{align}
+
+Equation 4.6 can be rewritten as
+
+\begin{align}
+\begin{split}
+\Braket{E_{\mathrm{kin}}} &= \frac{1}{2m} \sum_{n}\sum_{k}c_n^*\Bra{\phi_n}c_k\Ket{\phi_k} \\
+&= \frac{1}{2m} \sum_{n,k}c_n^*c_k\Braket{\phi_n|\phi_k} \\
+\end{split}
+\end{align}
+
+As the functions $\phi_n$ form a complete orthonormal set, $\Braket{\phi_n|\phi_k} = 0$ if $n \neq k$, and $1$ if $n=k$; the Dirac bracket in the sum can therefore be replaced by the Kronecker delta $\delta_{nk}$.
+
+\begin{align}
+\Braket{E_{\mathrm{kin}}} = \frac{1}{2m} \sum_{n,k}c_n^*c_k\delta_{nk}
+\end{align}
+
+It then becomes a sum over only one of the indicies, and the required result is obtained:
+
+\begin{align}
+\Braket{E_{\mathrm{kin}}} = \frac{1}{2m} \sum_{n}c_n^*c_n = \frac{1}{2m}\sum_{n}\abs{c_n}^2
+\end{align}
+
+\subsection{Part d}
+The coefficients for the functions $\phi_1$ and $\phi_2$ are $3\hbar/L$ and $-2i\hbar/L$ respectively.
+
+\begin{align}
+\begin{split}
+\Braket{E_{\mathrm{kin}}} &= \frac{1}{2m}\sum_{n}\abs{c_n}^2 \\ &= \frac{1}{2m} \left(\abs{c_1}^2+\abs{c_2}^2\right) \\
+&= \frac{1}{2m} \left[\frac{9\hbar^2}{L^2} + \frac{4\hbar^2}{L^2}\right] \\
+&= \frac{13\hbar^2}{2mL^2}
+\end{split}
+\end{align}
+%------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
