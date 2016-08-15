@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1471204465 "EMA.tex" "EMA.pdf" "EMA" 1471204466
+["pdflatex"] 1471296918 "EMA.tex" "EMA.pdf" "EMA" 1471296919
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
@@ -126,9 +126,9 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469382309 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469382374 3873397 2a7d786fcd25936dd85fb42445e94ddb ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "EMA.aux" 1471204466 1592 50d3b983b89674ced444f8940b61c01b ""
-  "EMA.tex" 1471204463 15833 2df479302f18ae2c76b01699288a8c64 ""
+  "EMA.aux" 1471296919 1624 dd8682c3684e0d34be90f509302ff3ca ""
+  "EMA.tex" 1471296913 16340 66006e658ae58e6cfe86e3c4c73851b1 ""
   (generated)
-  "EMA.pdf"
   "EMA.aux"
   "EMA.log"
+  "EMA.pdf"
