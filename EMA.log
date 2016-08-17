@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.24)  15 AUG 2016 22:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.24)  17 AUG 2016 21:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -866,20 +866,20 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 167.
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 190.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
 ) [2] [3] [4] [5] [6] [7] [8] (./EMA.aux) ) 
 Here is how much of TeX's memory you used:
- 15808 strings out of 493014
- 314355 string characters out of 6133351
- 414289 words of memory out of 5000000
- 19141 multiletter control sequences out of 15000+600000
- 94488 words of font info for 121 fonts, out of 8000000 for 9000
+ 15811 strings out of 493014
+ 314395 string characters out of 6133351
+ 413289 words of memory out of 5000000
+ 19142 multiletter control sequences out of 15000+600000
+ 98605 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,18n,51p,10392b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on EMA.pdf (8 pages, 70155 bytes).
+Output written on EMA.pdf (8 pages, 73456 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream

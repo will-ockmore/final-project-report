@@ -95,12 +95,46 @@
 \subsection{BB84}
 
 The BB84 protocol was the first proposed QKD protocol, put forward as the name implies in
-1984 by Bennet and Brassard in their paper INSERT REFERENCE. In BB84, Alice uses a single
-photon source to transmit a set of states to Bob, encoded in the polarization of the
-photons. Both Alice and Bob agree to align their polarizers in either the vertical/horizontal
-($\times$) basis, or the complementary basis of +45/-45 ($+$). Alice then transmits
-a set of photons down the quantum channel, randomly choosing one of the two bases for each
-photon, whilst Bob measures in his choice of basis for each photon received. 
+1984 by Bennet and Brassard in their paper INSERT REFERENCE.
+
+\subsubsection{The protocol}
+In BB84, Alice uses a single photon source to transmit a set of states to Bob,
+encoded in the polarization of the photons. Both Alice and Bob agree to align
+their polarizers in either the vertical/horizontal ($\times$) basis, or the
+complementary basis of +45/-45 ($+$). Alice then transmits a set of photons
+down the quantum channel, randomly choosing one of the two bases for each
+photon, whilst Bob measures in his choice of basis for each photon received.
+
+\begin{center}
+\begin{tabular}{c c c}
+	$\ket{H}$  & codes for & $0_+$ \\
+	$\ket{V}$  & codes for & $1_+$ \\
+	$\ket{+45}$  & codes for & $0_\times$ \\
+	$\ket{-45}$  & codes for & $1_\times$ \\
+\end{tabular}
+\end{center}
+
+Both Alice and Bob now have a list of sent of received bits, each with a basis. The second
+phase of the protocol is the classical sifting step: over the unsecured classical channel, they
+first start by comparing which bases were used for each bit, and discarding the bits for which
+they used different bases. For a list of size $N$ this step will on average reduce its size by half,
+to $N/2$. Having matched the measurement basis, this list is referred to as the \textit{raw key}.
+
+Alice and Bob now reveal a random sample of their raw key to one another, to compare for errors. By
+comparing each bit publicly over the classical channel, they can estimate the error rate for
+the quantum channel. If no errors are found, the raw key is already the secret key. If there are
+errors, Alice and Bob must either correct for them or discard their key INSERT REFERENCE. Both these actions can
+take place over the classical channel; hence this step is called the \textit{classical post-processing}.
+At the end of this phase, depending on how much information Eve could possess, Alice and Bob either share
+a secret key or they must discard the potentially compromised key.
+
+\subsection{B92}
+The B92 protocol, involving just 2 non-orthogonal states, is the most minimalist QKD protocol in terms
+of encoding. Described by Bennet in 1992 INSERT REFERENCE, 
+
+\subsubsection{Methods of eavesdropping}
+In most literature on QKD, Eve is assumed for the completeness of security proofs to have no restrictions
+on her eavesdropping other than the fundamental limitations of quantum mechanics
 
 
 
@@ -122,19 +156,7 @@ photon, whilst Bob measures in his choice of basis for each photon received.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\subsection{Blibby bloob}
 Operators on the right take precedence, and the result of the lowering operator $\hat{\textrm{A}}$ on the ground state of a quantum harmonic oscillator $\psi_0$ is always zero, by the definition of the energy eigenfunctions.
 
 \begin{align}

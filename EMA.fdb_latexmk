@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1471296918 "EMA.tex" "EMA.pdf" "EMA" 1471296919
+["pdflatex"] 1471464606 "EMA.tex" "EMA.pdf" "EMA" 1471464607
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
@@ -21,6 +21,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm" 1136768653 768 d7b9a2629a0c353102ad947dc9221d49 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-alt-ita.tfm" 1136768653 216 e27f2b163ac276d8da5e6537416cdf40 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm" 1136768653 220 26d85b63a783b1f1fab5622acbd07990 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm" 1136768653 560 af53a501c08f2f2cbf74fa511e7dbc5c ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm" 1136768653 620 19c124db3cfab09e2a270e93c0b94c1c ""
@@ -36,6 +37,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm" 1136768653 16984 6d4d92d3efaef5cab6a470d5d5548d56 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futrc8t.tfm" 1136768653 26092 182e5050cf835115f1b6eb9b94c009ee ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm" 1136768653 1844 05bfde78a3831349c6fcf7f272c13d65 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futri8t.tfm" 1136768653 16416 afc29352777063eec9d207ab744c06f5 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futsy.tfm" 1136768653 2072 49145300fcadcc756b7349fc6e6c8913 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb" 1164221255 36507 bc28f9f0cdba50a8a348a6e4dc8a5378 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb" 1164221255 37756 112837e95d30cb64c320437ea63bd4d6 ""
@@ -49,6 +51,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futr8c.vf" 1136768653 3472 98a72fa2fe6e50e20b8f3acbbac2b78e ""
   "/usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futr8t.vf" 1136768653 2168 e13210e675696694c4e23c8405ebd134 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futrc8t.vf" 1136768653 3544 7e517f82a1ea2008996633b01973df28 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futri8t.vf" 1136768653 2168 a3de0d7b0ec248b9d25f46a83dfdb4d8 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futsy.vf" 1136768653 1244 1f4b25246745a5efc1d2ad7087b5a9e9 ""
   "/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2016/texmf-dist/tex/generic/babel-english/english.ldf" 1367878877 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
@@ -126,9 +129,9 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469382309 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469382374 3873397 2a7d786fcd25936dd85fb42445e94ddb ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "EMA.aux" 1471296919 1624 dd8682c3684e0d34be90f509302ff3ca ""
-  "EMA.tex" 1471296913 16340 66006e658ae58e6cfe86e3c4c73851b1 ""
+  "EMA.aux" 1471464607 1983 4f854313145e08a0af91ee152cd9ee01 ""
+  "EMA.tex" 1471464604 17848 637062825df2822a7fdc2576c2bf76b2 ""
   (generated)
-  "EMA.aux"
   "EMA.log"
   "EMA.pdf"
+  "EMA.aux"
