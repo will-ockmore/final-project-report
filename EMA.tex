@@ -130,7 +130,13 @@ a secret key or they must discard the potentially compromised key.
 
 \subsection{B92}
 The B92 protocol, involving just 2 non-orthogonal states, is the most minimalist QKD protocol in terms
-of encoding. Described by Bennet in 1992 INSERT REFERENCE, 
+of encoding. Described by Bennet in 1992 INSERT REFERENCE, the B92 coding allows the receiver to learn
+whenever they get the bit sent without further discussion from Alice. Although sometimes easier to implement
+than the more popular BB84, it is more difficult to establish unconditional security in the case of B92,
+as it is much more sensitive to noise in the quantum channel.
+
+\subsubsection{The protocol}
+
 
 \subsubsection{Methods of eavesdropping}
 In most literature on QKD, Eve is assumed for the completeness of security proofs to have no restrictions
