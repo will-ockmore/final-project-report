@@ -259,6 +259,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futri8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-alt-ita.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fourier/ts1futs.fd
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fourier/ts1futs.fd
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futr8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futr8t.vf
@@ -271,9 +274,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futmii.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fourier/ts1futs.fd
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fourier/ts1futs.fd
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futmi.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/fourier/futmii.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm

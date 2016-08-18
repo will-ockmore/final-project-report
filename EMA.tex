@@ -95,7 +95,7 @@
 \subsection{BB84}
 
 The BB84 protocol was the first proposed QKD protocol, put forward as the name implies in
-1984 by Bennet and Brassard in their paper INSERT REFERENCE.
+1984 by Bennet and Brassard in their paper %TODO insert reference%.
 
 \subsubsection{The protocol}
 In BB84, Alice uses a single photon source to transmit a set of states to Bob,
@@ -130,17 +130,39 @@ a secret key or they must discard the potentially compromised key.
 
 \subsection{B92}
 The B92 protocol, involving just 2 non-orthogonal states, is the most minimalist QKD protocol in terms
-of encoding. Described by Bennet in 1992 INSERT REFERENCE, the B92 coding allows the receiver to learn
+of encoding. Described by Bennet in 1992 %TODO insert reference%, the B92 coding allows the receiver to learn
 whenever they get the bit sent without further discussion from Alice. Although sometimes easier to implement
 than the more popular BB84, it is more difficult to establish unconditional security in the case of B92,
 as it is much more sensitive to noise in the quantum channel.
 
 \subsubsection{The protocol}
+B92 can be carried out using the two bases used in BB84. Following on from the above description, Alice sends either
+$\ket{H}$ or $\ket{+45}$, and Bob chooses to measure the incoming bit in either the ($\times$) or the ($+$)
+basis. Both of these states code for 0 in BB84; if Bob measures the state that codes for 1 ($\ket{-45}$ or
+$\ket{V}$ respectively) he can be certain that Alice transmitted her bit in the opposite basis. Hence, B92
+allows the participants to restrict their transmissions in the sifting phase to whether or not Bob made
+a conclusive measurement for each bit sent. After discarding all bits for which Bob cannot be certain, the raw
+key they are left with is on average $N/4$ bits long, for an initial transmission of $N$ bits.
 
+After a simple comparison of raw key length to the length of the initial string sent by Alice for the classical
+post processing step, the participants either possess a secret key, or have been alerted to the possibility
+of Eve's presence.
 
-\subsubsection{Methods of eavesdropping}
+\subsection{Methods of eavesdropping - limitations of BB84 and B92}
 In most literature on QKD, Eve is assumed for the completeness of security proofs to have no restrictions
-on her eavesdropping other than the fundamental limitations of quantum mechanics
+on her eavesdropping, other than the fundamental limitations of quantum mechanics itself; namely, the
+no-cloning theorem and the effects of measurement on a free particle. Briefly described here are the
+most commonly considered eavesdropping techniques that are considered for BB84 and B92.
+
+\subsubsection{Intecept-resend}
+Potentially the most straightforward eavesdropping technique generally considered is the intercept-resend
+strategy. Eve essentially takes the same actions as Bob; with her unrestricted capabilities, performs
+a quantum non-demolition measurement on the incoming photons from Alice, measuring in either the $\times$)
+or the ($+$) basis. If she has measured in the basis used by Alice, the photon continues on to Bob,
+and Eve has obtained full information whilst introducing no errors to the signal. However, if she has measured
+in the wrong basis, her result will be uncorrelated with Alice's; meanwhile, she will have sent along
+a modified state, so even if Bob measures in the same basis as sent by Alice, half the time he will get the
+wrong result %TODO insert ref review paper%.
 
 
 
