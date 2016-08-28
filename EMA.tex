@@ -27,6 +27,19 @@
 \usepackage{siunitx}
 \usepackage{mathtools} %for delimiters
 \usepackage{braket}
+\usepackage{natbib}
+\bibliographystyle{agsm}
+
+% for bibliography compatibility
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
+\DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
@@ -206,7 +219,7 @@ Eve's actions remain undetected, and the security of the protocol is compromised
 Against B92, the PNS attack is even more straightforward. No quantum memory is required; all that is sufficient is that Eve performs
 the same measurement as Bob, and blocks the message in the event of an inconclusive result. In this way, the losses are attributed
 to channel losses; as long as a critical threshold is not reached (as above), Eve will obtain full information of the key. Again, due to
-the lack of error in the received states, Eve will remain entirely unnoticed.
+the lack of error in the received states, Eve will remain entirely unnoticed. \citep{proofBB84}
 
 
 
@@ -214,5 +227,5 @@ the lack of error in the received states, Eve will remain entirely unnoticed.
 
 
 %----------------------------------------------------------------------------------------
-
+\bibliography{bibliography.bib}
 \end{document}

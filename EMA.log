@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.24)  27 AUG 2016 21:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.24)  28 AUG 2016 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -500,7 +500,23 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen164
 \l_MT_above_shortintertext_sep=\dimen165
 \l_MT_below_shortintertext_sep=\dimen166
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty) (/usr/local/texlive/2016/texmf-dist/tex/latex/sectsty/sectsty.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty) (/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip77
+\bibsep=\skip78
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count150
+)
+LaTeX Info: Redefining \rm on input line 34.
+LaTeX Info: Redefining \sf on input line 35.
+LaTeX Info: Redefining \tt on input line 36.
+LaTeX Info: Redefining \bf on input line 37.
+LaTeX Info: Redefining \it on input line 38.
+LaTeX Info: Redefining \sl on input line 39.
+LaTeX Info: Redefining \sc on input line 40.
+LaTeX Info: Redefining \cal on input line 41.
+LaTeX Info: Redefining \mit on input line 42.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
 )
 
@@ -509,33 +525,33 @@ Class scrartcl Warning: Usage of package `fancyhdr' together
 (scrartcl)              I'd suggest to use 
 (scrartcl)              package `scrlayer-scrpage'.
 (scrartcl)              Nevertheless, using requested
-(scrartcl)              package `fancyhdr' on input line 52.
+(scrartcl)              package `fancyhdr' on input line 65.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip77
-\f@ncyO@elh=\skip78
-\f@ncyO@erh=\skip79
-\f@ncyO@olh=\skip80
-\f@ncyO@orh=\skip81
-\f@ncyO@elf=\skip82
-\f@ncyO@erf=\skip83
-\f@ncyO@olf=\skip84
-\f@ncyO@orf=\skip85
+\fancy@headwidth=\skip79
+\f@ncyO@elh=\skip80
+\f@ncyO@erh=\skip81
+\f@ncyO@olh=\skip82
+\f@ncyO@orh=\skip83
+\f@ncyO@elf=\skip84
+\f@ncyO@erf=\skip85
+\f@ncyO@olf=\skip86
+\f@ncyO@orf=\skip87
 ) (./EMA.aux)
 \openout1 = `EMA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dictionary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
@@ -557,19 +573,19 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count150
+\Gread@gobject=\count151
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count151
+\scratchcounter=\count152
 \scratchdimen=\dimen167
 \scratchbox=\box53
-\nofMPsegments=\count152
-\nofMParguments=\count153
+\nofMPsegments=\count153
+\nofMParguments=\count154
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count154
+\MPscratchCnt=\count155
 \MPscratchDim=\dimen168
-\MPnumerator=\count155
-\makeMPintoPDFobject=\count156
+\MPnumerator=\count156
+\makeMPintoPDFobject=\count157
 \everyMPtoPDFconversion=\toks28
 ))) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO)
@@ -609,38 +625,46 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \Gin@req@height=\dimen169
 \Gin@req@width=\dimen170
 )
-\c__siunitx_mathsf_int=\count157
-LaTeX Font Info:    Try loading font information for U+msa on input line 85.
+\c__siunitx_mathsf_int=\count158
+LaTeX Font Info:    Try loading font information for U+msa on input line 98.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 85.
+LaTeX Font Info:    Try loading font information for U+msb on input line 98.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count158
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 88.
+\c__siunitx_mathtt_int=\count159
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 101.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [1
 
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-[4] (./EMA.aux) ) 
+(./EMA.bbl
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 1.
+
+) [4] (./EMA.aux) ) 
 Here is how much of TeX's memory you used:
- 14998 strings out of 493014
- 301947 string characters out of 6133351
- 401807 words of memory out of 5000000
- 18394 multiletter control sequences out of 15000+600000
- 24906 words of font info for 70 fonts, out of 8000000 for 9000
+ 15341 strings out of 493014
+ 306064 string characters out of 6133351
+ 407348 words of memory out of 5000000
+ 18729 multiletter control sequences out of 15000+600000
+ 25689 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,10n,51p,10392b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on EMA.pdf (4 pages, 164227 bytes).
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
+m-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on EMA.pdf (4 pages, 178623 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
