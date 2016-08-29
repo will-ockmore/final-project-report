@@ -191,7 +191,7 @@ on her eavesdropping, other than the fundamental limitations of quantum mechanic
 no-cloning theorem and the effects of measurement on a free particle. Briefly described here are the
 most common eavesdropping techniques that are considered for BB84 and B92.
 
-\subsubsection{Intecept-resend}
+\subsection{Intecept-resend}
 Potentially the most straightforward eavesdropping technique is the intercept-resend
 strategy, which functions exactly the same for both BB84 and  B92.
 Eve essentially takes the same actions as Bob; with her unrestricted capabilities, performs
@@ -202,18 +202,6 @@ in the wrong basis, her result will be uncorrelated with Alice's; meanwhile, she
 a modified state, so even if Bob measures in the same basis as sent by Alice, half the time he will get the
 wrong result. \citep{reviewScariani}
 
-Intercept-resend leaves Eve with full information of half the bits in the full key ($I_E = 0.5$). It introduces
-an error rate of 25\% ($Q = 0.25$) into the key recieved by Bob. Using the assumptions given by \citet{csiszarAssump}
-it can be shown that this means no secret key can be extracted. This is in fact true for all protocols \citep{reviewScariani}.
-
-Even in the case where Eve does not eavesdrop on all photons in the key, and instead on just a fraction $p$,
-then clearly $Q = p/4$ and so
-
-\begin{align}
-I_E	= p/2 = 2Q
-\end{align}
-
-Hence a secure key can only be extracted if $Q \leq 15\%$. \citep{qber15proof}
 
 \subsection{Photon Number Splitting attack - PNS}
 In real world applications of QKD, the photon source is never a true strong single photon emitter. Typically
@@ -242,10 +230,100 @@ to channel losses; as long as a critical threshold is not reached (as above), Ev
 the lack of error in the received states, Eve will remain entirely unnoticed.
 
 \subsection{Discussion}
+Strategies for eavesdropping on QKD protocols can be generally split into two main groups;
+\textit{individual} and \textit{coherent} \citep{gisin2002}. Individual attacks involve
+Eve probing each qubit individually as she recieves them, whereas for coherent attacks
+she is process multiple qubits at a time, for instance by storing them in quantum
+memory for later measurement. The two types have different consequences for generating
+a truly secure key.
 
+\subsubsection{Individual attacks: Intercept-resend}
+Intercept-resend is classified as an individual attack.
+After she has completed the process, Eve is left with full information of half the bits in the full key ($I_E = 0.5$).
+The measurement process introduces an error rate of 25\% (QBER $= Q = 0.25$)
+into the key recieved by Bob. Using the assumptions given by \citet{csiszarAssump},
+this means no secret key can be extracted. This is in fact true for \textit{all} protocols under an individual-type
+attack \citep{reviewScariani}.
 
+Even in the case where Eve does not eavesdrop on all photons in the key, and instead on just a fraction $p$,
+then clearly $Q = p/4$ and so
 
+\begin{align}
+I_E	= p/2 = 2Q
+\end{align}
 
+Hence a secure key can only be extracted if $Q \leq 15\%$. \citep{qber15proof}
+
+\subsubsection{PNS and other coherent attacks}
+\citet{gisin2002} succintly summarises the work of \citet{proofBB84} and others
+on the subject of coherent attacks; using two theorems, the upper bound is found for the QBER
+of a protocol expected to withstand coherent attack.
+
+The first theorem originates from the field of classical
+cryptography \citep{csiszarAssump}; if Alice, Bob and Eve
+at some point perform measurements on their quantum systems
+they will obtain classical random variables $\alpha$, $\beta$
+and $\epsilon$, respectively, with $P(\alpha, \beta, \epsilon)$ as the
+joint probability distribution. The the necessary and sufficient condition
+for Alice and Bob to extract a secret key is
+
+\begin{align}
+	I(\alpha, \beta) \geq I(\alpha, \epsilon)
+	\qquad
+	\mathrm{or}
+	\qquad
+	I(\alpha, \beta) \geq I(\beta, \epsilon)
+\end{align}
+
+Where $I(\alpha, \beta) = H(\alpha) - H(\alpha | \beta)$ denotes the mutual information,
+and $H$ is the Shannon entropy.
+
+The second theorem expresses Heisenberg's uncertainty relation in terms of available information
+\citep{hall1995}: it sets a bound on the sum of information about Alice's key available to Bob
+and Eve.
+
+Let E and B be two observables in an $N$-dimensional
+Hilbert space. Let $\epsilon$, $\beta$, $\ket{\epsilon}$ and $\ket{\beta}$ be the corresponding
+eigenvalues and eigenvectors, respectively, and
+let $c = \mathrm{max}_{\epsilon, \beta}\left\{\abs{\Braket{\epsilon|\beta}}\right\}$. Then
+
+\begin{align}
+	I(\alpha, \epsilon) + I(\alpha, \beta) \leq 2\mathrm{log}_2(Nc)
+\end{align}
+
+Where again, $I(\alpha, \epsilon) = H(\alpha) - H(\alpha | \epsilon)$ and
+$I(\alpha, \beta) = H(\alpha) - H(\alpha | \beta)$ are the entropy differences
+corresponding to the probability distribution of the eigenvalues $\alpha$ prior
+to and deduced from and measurement by Eve and Bob, respectively.
+
+Theorem one means that to generate a secure key, Bob must have more information than
+Eve about the bits generated by Alice. Theorem two is a mathematical description of the
+fact that if Eve performs some measurement providing her with information, then because of
+the perturbation, Bob's information is necessarily limited.
+
+Using symmetry arguments, and denoting the number of qubits received in the
+correct basis by Bob as $n$, theorem two implies
+
+\begin{align}
+	I(\alpha, \epsilon) + I(\alpha, \beta) \leq n
+\end{align}
+
+Which simply means that the sum of Eve and Bob's information per qubit is
+less than or equal to 1; they cannot collectively receive more information
+than Alice sends out. Combined with theorem one, this leads to the result that
+a secret key is obtainable whenever $I(\alpha, \beta) \geq n/2$.
+Finally using $I(\alpha, \beta) = n\left[1-Q\mathrm{log}_2(Q) - (1-Q)\mathrm{log}_2(1-Q)\right]$,
+the bound for $Q$ (the QBER) can be obtained:
+\begin{align}
+	Q\mathrm{log}_2(Q) + (1-Q)\mathrm{log}_2(1-Q) \leq 1/2
+	\qquad
+	\Rightarrow
+	\qquad
+	Q \leq 11\%
+\end{align}
+
+This bound in particular is only valid in the case where the key is much longer than number of
+qubits Eve attacks coherently - 
 %------------------------------------------------
 
 

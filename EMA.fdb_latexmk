@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex EMA"] 1472484722 "EMA.aux" "EMA.bbl" "EMA" 1472484723
+["bibtex EMA"] 1472490754 "EMA.aux" "EMA.bbl" "EMA" 1472491000
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "EMA.aux" 1472484723 2370 a831eec0ef6547031e7dd6981521eeac ""
+  "EMA.aux" 1472490999 2803 0a188efbec0dfc5bd8813b258df46568 ""
   "EMA.bcf" 0 -1 0 ""
-  "bibliography.bib" 1472484396 10168 c071273e01b7af742a9744133b06f629 ""
+  "bibliography.bib" 1472489056 10591 c36c8e9a5fdc0ec776e6d9d006625eaa ""
   (generated)
   "EMA.blg"
   "EMA.bbl"
-["pdflatex"] 1472484722 "EMA.tex" "EMA.pdf" "EMA" 1472484723
+["pdflatex"] 1472490998 "EMA.tex" "EMA.pdf" "EMA" 1472491000
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/eccc1095.tfm" 1136768653 3072 1b1df026a15993ee98d265b49cf8d5f2 ""
@@ -128,10 +128,10 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469382309 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469382374 3873397 2a7d786fcd25936dd85fb42445e94ddb ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "EMA.aux" 1472484723 2370 a831eec0ef6547031e7dd6981521eeac ""
-  "EMA.bbl" 1472484722 3360 4f2ce30d02fce647023d561419082169 "bibtex EMA"
-  "EMA.tex" 1472484719 13520 04a2ba39dfbb59c17b471ec871ec1d5a ""
+  "EMA.aux" 1472490999 2803 0a188efbec0dfc5bd8813b258df46568 ""
+  "EMA.bbl" 1472490754 3545 24b03df06f36744990b3a5cce2cb9170 "bibtex EMA"
+  "EMA.tex" 1472490998 17064 e8b176c360698d33a1206f7f4bf75c9a ""
   (generated)
-  "EMA.pdf"
   "EMA.aux"
   "EMA.log"
+  "EMA.pdf"
