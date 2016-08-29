@@ -28,7 +28,7 @@
 \usepackage{mathtools} %for delimiters
 \usepackage{braket}
 \usepackage{natbib}
-\bibliographystyle{agsm}
+\bibliographystyle{apalike}
 
 % for bibliography compatibility
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
@@ -107,8 +107,11 @@
 
 \subsection{BB84}
 
-The BB84 protocol was the first proposed QKD protocol, put forward as the name implies in
-1984 by Bennet and Brassard in their paper. %TODO insert reference%
+The BB84 protocol was the first proposed QKD protocol, introduced at
+an IEEE conference in India by \citet{BB84}, to little fanfare at the
+time \citep{historyBrassard}; it would grow to become the most well known
+and widely tested example of a QKD protocol. Today, it serves as
+the benchmark against which all others are measured.
 
 \subsubsection{The protocol}
 In BB84, Alice uses a single photon source to transmit a set of states to Bob,
@@ -131,23 +134,21 @@ Both Alice and Bob now have a list of sent of received bits, each with a basis. 
 phase of the protocol is the classical sifting step: over the unsecured classical channel, they
 first start by comparing which bases were used for each bit, and discarding the bits for which
 they used different bases. For a list of size $N$ this step will on average reduce its size by half,
-to $N/2$. Having matched the measurement basis, this list is referred to as the \textit{raw key}.
+to $N/2$. Having matched the measurement basis, this list is referred to as the \textit{raw key} \citep{gisin2002}.
 
 Alice and Bob now reveal a random sample of their raw key to one another, to compare for errors. By
 comparing each bit publicly over the classical channel, they can estimate the error rate for
 the quantum channel. If no errors are found, the raw key is already the secret key. If there are
-errors, Alice and Bob must either correct for them or discard their key INSERT REFERENCE. Both these actions can
+errors, Alice and Bob must either correct for them or discard their key \citep{reviewScariani}. Both these actions can
 take place over the classical channel; hence this step is called the \textit{classical post-processing}.
 At the end of this phase, depending on how much information Eve could possess, Alice and Bob either share
-a secret key or they must discard the potentially compromised key.
+a secret key, or they must discard the potentially compromised key.
 
 \subsection{B92}
-The B92 protocol, involving just 2 non-orthogonal states, is the most minimalist QKD protocol in terms
-of encoding. Described by Bennet in 1992, %TODO insert reference%
-the B92 coding allows the receiver to learn
-whenever they get the bit sent without further discussion from Alice. Although sometimes easier to implement
-than the more popular BB84, it is more difficult to establish unconditional security in the case of B92,
-as it is much more sensitive to noise in the quantum channel.
+The B92 protocol, involving just 2 non-orthogonal states, is the
+most minimalist QKD protocol in terms of encoding. Described by \citet{B92},
+the B92 coding allows the receiver to learn whenever they get
+the bit sent without further discussion from Alice.
 
 \subsubsection{The protocol}
 B92 can be carried out using the two bases used in BB84. Following on from the above description, Alice sends either
@@ -162,14 +163,36 @@ After a simple comparison of raw key length to the length of the initial string 
 post processing step, the participants either possess a secret key, or have been alerted to the possibility
 of Eve's presence.
 
+\subsection{Discussion}
+The BB84 and B92 protocols are two of the most rigourously tested QKD protocols, with many published articles
+on their relative strengths and weaknesses. Ultimate proofs exist for both; a well known one for BB84
+by \citet{proofBB84}; and similarly, for B92 there is \citet{tamakiProofB92}. Both of these proofs rely on
+conversion to EDP entanglement protocols; shortly after the first entanglement-based QKD protocol was
+described by \citet{E91}, prepare-and-measure protocols were shown to have equivalent entanglement-based
+versions by \citet{edpEquivProof}. It must be noted, however, that the above proofs are valid only
+for perfect single photon sources.
+
+Although sometimes easier to implement than the more popular BB84, it is more difficult to establish
+unconditional security of B92, as it is much more sensitive to losses and noise in the
+quantum channel. In the original paper, it is shown to be necessary
+to rely on a strong reference pulse to guard against
+losses and noise; again the security of this implementation has been proven
+\citep{tamakiStrongRefProofB92}.
+
+In an idealised world, where perfect single photon sources were available,
+these protocols would provide complete security with no extensions required.
+However, this is not the case for practical applications of QKD;
+as discussed in the following chapter, BB84 and B92 are highly susceptible to
+Eve's methods when real world limitations are present on the protocols.
+
 \section{Limitations of QKD - Eavesdropping techniques}
-In most literature on QKD, Eve is assumed for the completeness of security proofs to have no restrictions
+In most literature on QKD, Eve is assumed, for the completeness of security proofs, to have no restrictions
 on her eavesdropping, other than the fundamental limitations of quantum mechanics itself; namely, the
 no-cloning theorem and the effects of measurement on a free particle. Briefly described here are the
-most commonly considered eavesdropping techniques that are considered for BB84 and B92.
+most common eavesdropping techniques that are considered for BB84 and B92.
 
 \subsubsection{Intecept-resend}
-Potentially the most straightforward eavesdropping technique generally considered is the intercept-resend
+Potentially the most straightforward eavesdropping technique is the intercept-resend
 strategy, which functions exactly the same for both BB84 and  B92.
 Eve essentially takes the same actions as Bob; with her unrestricted capabilities, performs
 a quantum non-demolition measurement on the incoming photons from Alice, measuring in either the $\times$
@@ -177,11 +200,11 @@ or the $+$ basis. If she has measured in the basis used by Alice, the photon con
 and Eve has obtained full information whilst introducing no errors to the signal. However, if she has measured
 in the wrong basis, her result will be uncorrelated with Alice's; meanwhile, she will have sent along
 a modified state, so even if Bob measures in the same basis as sent by Alice, half the time he will get the
-wrong result. %TODO insert ref review paper%
+wrong result. \citep{reviewScariani}
 
 Intercept-resend leaves Eve with full information of half the bits in the full key ($I_E = 0.5$). It introduces
-an error rate of 25\% ($Q = 0.25$) into the key recieved by Bob. Using the assumptions given by (Csiszar and Korner, 1978) %TODO: properly reference
-it can be shown that this means no secret key can be extracted. This is in fact true for all protocols.
+an error rate of 25\% ($Q = 0.25$) into the key recieved by Bob. Using the assumptions given by \citet{csiszarAssump}
+it can be shown that this means no secret key can be extracted. This is in fact true for all protocols \citep{reviewScariani}.
 
 Even in the case where Eve does not eavesdrop on all photons in the key, and instead on just a fraction $p$,
 then clearly $Q = p/4$ and so
@@ -190,36 +213,36 @@ then clearly $Q = p/4$ and so
 I_E	= p/2 = 2Q
 \end{align}
 
-Hence a secure key can only be extracted if $Q \geq 17\%$. The precise figure varies by%TODO ref PERFORMANCE COMPARISON OF BB84 AND B92 SATELLITE-BASED FREE SPACE QUANTUM OPTICAL COMMUNICATION SYSTEMS IN THE PRESENCE OF CHANNEL EFFECTS
-publication however. %TODO GIVE EXAMPLE
+Hence a secure key can only be extracted if $Q \leq 15\%$. \citep{qber15proof}
 
-\subsection{Photon Number Splitting attack - PNS} %TODO: use Robustness Kronberg paper for reference for this
+\subsection{Photon Number Splitting attack - PNS}
 In real world applications of QKD, the photon source is never a true strong single photon emitter. Typically
-a weak coherent pulse laser source is used. %TODO: reference
+a weak coherent pulse laser source is used. \citep{satellites}
 These sources emit pulses of coherent states, often containing 2 or more photons.
 
 This presents a problem for the security of BB84 and B92, as described below.
 
 \subsubsection{BB84}
-
 The security weakness in coherent pulses comes from Eve's ability to nondestructively determine the number of photons
 in a pulse. The principle of the PNS attack is that Eve will block all single photon pulses, and for any pulse where
 multiple photons are detected, Eve will store in quantum memory a subset of the pulse, while allowing the rest to continue
 on to Bob (through an ideal quantum channel, to ensure his receipt of the photons). During the sifting
 phase, Alice and Bob's communications over the public channel can be used by Eve to construct
 a complete key from the stored states. The major benefit to Eve with this method is that it does not introduce an error in the
-states received by Bob; in fact, the only risk of detection comes from the losses due to single photon pulses being blocked.
+states received by Bob; in fact, the only risk of detection comes from the losses due to single photon pulses being blocked \citep{kronberg2009}.
 
 As long as these losses do not reach a critical threshold (dependent on the length of the communication channel and the expected losses),
 Eve's actions remain undetected, and the security of the protocol is compromised.
 
 
 \subsubsection{B92}
-
 Against B92, the PNS attack is even more straightforward. No quantum memory is required; all that is sufficient is that Eve performs
-the same measurement as Bob, and blocks the message in the event of an inconclusive result. In this way, the losses are attributed
+the same measurement as Bob, and blocks the message in the event of an inconclusive result \citep{kronberg2009}. In this way, the losses are attributed
 to channel losses; as long as a critical threshold is not reached (as above), Eve will obtain full information of the key. Again, due to
-the lack of error in the received states, Eve will remain entirely unnoticed. \citep{proofBB84}
+the lack of error in the received states, Eve will remain entirely unnoticed.
+
+\subsection{Discussion}
+
 
 
 
