@@ -63,6 +63,7 @@
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
 
 \usepackage{fancyhdr} % Custom headers and footers
+
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead{} % No page header - if you want one, create it in the same way as the footers below
 \fancyfoot[L]{} % Empty left footer
@@ -103,8 +104,44 @@
 \tableofcontents
 
 %----------------------------------------------------------------------------------------
-%	PROBLEM 1
+%	INTRODUCTION
 %----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+Quantum key distribution is the study of quantum mechanics
+as a mechanism to share an unconditionally secure key between two parties. Since the first
+protocol (BB84 or the four-state protocol) was proposed in the mid 1980s \citep{BB84},
+the field has slowly grown; it now encompasses many different
+protocols, using a variety of quantum processes to enable ever more secure
+sharing of information. Still amongst the most widely
+used, BB84 is one of the most straightforward; using two sets of two non-orthogonal basis states,
+the key is encrypted in the state sent, and when the classical bit-sifting phase
+takes place Alice (the sender) communicates to Bob (the receiver) the basis used for a selection
+of the states sent. If the error is within the acceptable bounds, they can be sure that
+their key is secure, and communicate the basis used for the rest of the states. In this
+way, the unconditional security is achieved.
+
+One major problem with BB84 is its reliance on a single photon source for true unconditional security.
+Consider the ideal for Eve (eavesdropper); no restrictions are made on her technology or capability other
+than the laws of physics. It is then clear that if the source used to send the key sends two or more quantum
+states per bit, Eve can execute a Photon Number Splitting (PNS) attack; for every pulse of two or more photons,
+she stores one state and lets the other state(s) continue on to Bob. Once Alice reads out the bases she used, Eve
+will therefore have the complete key without the knowledge of the other participants; the security is lost. This
+can be generalised to all prepare and measure protocols.
+
+The area of study for this report focuses on the use of a recent protocol, SARG04, as a means to improve the
+robustness against PNS attacks as compared to the standard prepare and measure protocols. It compares its efficacy
+to BB84 and others, and discusses the impact of decoy states and other practical methods to increase security.
+
+The objectives for the report are as follows: to give a brief history of QKD and its possible impact on current
+society; to discuss the limitations of historical protocols in the real world; to give a detailed analysis of the
+SARG04 protocol and its benefits over previous protocols; and finally to give a brief outline of real world improvements
+and limitations, either through practical engineering or new techniques.
+
+The search methodology used in this report involved first doing a broad search of academic articles, using google scholar and similar
+tools, and then narrowing the scope through progressively more specific boolean search terms; then using papers already found to aid understanding
+of the research area, and to provide other papers to study in the form of references.
 
 \section{The BB84 and B92 prepare and measure protocols}
 
