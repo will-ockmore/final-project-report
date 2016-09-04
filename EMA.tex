@@ -27,6 +27,7 @@
 \usepackage{siunitx}
 \usepackage{mathtools} %for delimiters
 \usepackage{braket}
+\usepackage{gensymb}
 \usepackage{natbib}
 \bibliographystyle{apalike}
 
@@ -75,7 +76,7 @@
 \numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 \numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 
-\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+% \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -87,7 +88,7 @@
 \normalfont \normalsize
 \textsc{The Open University} \\ [25pt] % Your university, school and/or department name(s)
 \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
-\huge SXP390 Tutor Marked Assignment 03 - Part 4 \\ % The assignment title
+\huge A Critical evaluation of Quantum Key Distribution, focusing on SARG04 as a benchmark \\ % The assignment title
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
@@ -99,11 +100,18 @@
 
 \maketitle % Print the title
 
+\tableofcontents
+
 %----------------------------------------------------------------------------------------
 %	PROBLEM 1
 %----------------------------------------------------------------------------------------
 
 \section{The BB84 and B92 prepare and measure protocols}
+
+In this chapter, we give a description of two QKD protocols; BB84 and B92.
+They both belong to the family of \textit{prepare and measure} protocols, and as
+such rely on sending individual quantum states (qubits), rather than coding
+via entangled pairs or other means.
 
 \subsection{BB84}
 
@@ -116,8 +124,8 @@ the benchmark against which all others are measured.
 \subsubsection{The protocol}
 In BB84, Alice uses a single photon source to transmit a set of states to Bob,
 encoded in the polarization of the photons. Both Alice and Bob agree to align
-their polarizers in either the vertical/horizontal ($\times$) basis, or the
-complementary basis of +45/-45 ($+$). Alice then transmits a set of photons
+their polarizers in either the vertical/horizontal ($+$) basis, or the
+complementary basis of $\pm 45 \degree$  ($\times$). Alice then transmits a set of photons
 down the quantum channel, randomly choosing one of the two bases for each
 photon, whilst Bob measures in his choice of basis for each photon received.
 
@@ -188,14 +196,15 @@ Eve's methods when real world limitations are present on the protocols.
 \section{Limitations of QKD - Eavesdropping techniques}
 In most literature on QKD, Eve is assumed, for the completeness of security proofs, to have no restrictions
 on her eavesdropping, other than the fundamental limitations of quantum mechanics itself; namely, the
-no-cloning theorem and the effects of measurement on a free particle. Briefly described here are the
-most common eavesdropping techniques that are considered for BB84 and B92.
+no-cloning theorem and the effects of measurement on a free particle. Briefly described here are two of the
+most common eavesdropping techniques that are considered for BB84 and B92, followed by a more in-depth look
+at classification of eavesdropping strategies and discussion of the relevant literature.
 
 \subsection{Intecept-resend}
 Potentially the most straightforward eavesdropping technique is the intercept-resend
 strategy, which functions exactly the same for both BB84 and  B92.
 Eve essentially takes the same actions as Bob; with her unrestricted capabilities, performs
-a quantum non-demolition measurement on the incoming photons from Alice, measuring in either the $\times$
+a quantum nondemolition measurement on the incoming photons from Alice, measuring in either the $\times$
 or the $+$ basis. If she has measured in the basis used by Alice, the photon continues on to Bob,
 and Eve has obtained full information whilst introducing no errors to the signal. However, if she has measured
 in the wrong basis, her result will be uncorrelated with Alice's; meanwhile, she will have sent along
@@ -229,32 +238,50 @@ the same measurement as Bob, and blocks the message in the event of an inconclus
 to channel losses; as long as a critical threshold is not reached (as above), Eve will obtain full information of the key. Again, due to
 the lack of error in the received states, Eve will remain entirely unnoticed.
 
-\subsection{Discussion}
+\subsection{Classification of eavesdropping strategies and further discussion}
 Strategies for eavesdropping on QKD protocols can be generally split into two main groups;
-\textit{individual} and \textit{coherent} \citep{gisin2002}. Individual attacks involve
+\textit{individual} and \textit{coherent}. Individual attacks involve
 Eve probing each qubit individually as she recieves them, whereas for coherent attacks
-she is process multiple qubits at a time, for instance by storing them in quantum
-memory for later measurement. The two types have different consequences for generating
+she may process multiple qubits at a time, and measure them \textit{coherently}; for
+instance, she can store them in quantum memory, and need not measure the qubits until
+some later point \citep{gisin2002}. The two types have different consequences for generating
 a truly secure key.
 
-\subsubsection{Individual attacks: Intercept-resend}
-Intercept-resend is classified as an individual attack.
-After she has completed the process, Eve is left with full information of half the bits in the full key ($I_E = 0.5$).
+\subsubsection{Individual attacks}
+Individual attacks impose a higher limitation on Eve, as she cannot wait for the participants to enact the sifting
+phase before she takes her measurements - she must measure sequentially, as must Bob. Intercept-resend is classified as an individual attack.
+
+In intercept-resend, after she has completed the process,
+Eve is left with full information of half the bits in the full key ($I_E = 0.5$).
 The measurement process introduces an error rate of 25\% (QBER $= Q = 0.25$)
 into the key recieved by Bob. Using the assumptions given by \citet{csiszarAssump},
 this means no secret key can be extracted. This is in fact true for \textit{all} protocols under an individual-type
 attack \citep{reviewScariani}.
 
 Even in the case where Eve does not eavesdrop on all photons in the key, and instead on just a fraction $p$,
-then clearly $Q = p/4$ and so
+then clearly $Q = p/4$ and
 
 \begin{align}
 I_E	= p/2 = 2Q
 \end{align}
 
-Hence a secure key can only be extracted if $Q \leq 15\%$. \citep{qber15proof}
+More errors in the received qubits can then be assumed in worst case to be an increase in Eve's information,
+along with a corresponding decrease in Bob's information. When Eve's maximal information is compared with Bob's error
+(given by his Shannon information), an inequality is recovered which describes the relative advantage of Bob or Eve.
+The point at which this advantage shifts to Eve can be expressed as a specific error rate $Q_0$:
 
-\subsubsection{PNS and other coherent attacks}
+\begin{align}
+	I(\alpha, \beta) = \mathrm{max} \left\{ I(\alpha, \epsilon) \right\}
+	\quad
+	\Leftrightarrow
+	\quad
+	Q = Q_0
+	\approx 15\%
+\end{align}
+
+Hence a secure key can only be extracted if $Q \leq 15\%$. \citep{qber15proof, gisin2002, huttner1995}
+
+\subsubsection{Coherent attacks}
 \citet{gisin2002} succintly summarises the work of \citet{proofBB84} and others
 on the subject of coherent attacks; using two theorems, the upper bound is found for the QBER
 of a protocol expected to withstand coherent attack.
@@ -296,8 +323,8 @@ $I(\alpha, \beta) = H(\alpha) - H(\alpha | \beta)$ are the entropy differences
 corresponding to the probability distribution of the eigenvalues $\alpha$ prior
 to and deduced from and measurement by Eve and Bob, respectively.
 
-Theorem one means that to generate a secure key, Bob must have more information than
-Eve about the bits generated by Alice. Theorem two is a mathematical description of the
+Theorem 1 means that to generate a secure key, Bob must have more information than
+Eve about the bits generated by Alice. Theorem 2 is a mathematical description of the
 fact that if Eve performs some measurement providing her with information, then because of
 the perturbation, Bob's information is necessarily limited.
 
@@ -322,8 +349,46 @@ the bound for $Q$ (the QBER) can be obtained:
 	Q \leq 11\%
 \end{align}
 
-This bound in particular is only valid in the case where the key is much longer than number of
-qubits Eve attacks coherently - 
+This bound, when arrived at this way in particular, is only valid in the case where the key is much longer than number of
+qubits Eve attacks coherently - allowing the Shannon information used to represent averages over
+many measurements which return classical, random variables. However, the full proof given by
+\citet{proofBB84} can still be used even in the event of Eve coherently attacking an unlimited number
+of qubits. Precisely the same bound of $11\%$ QBER is recovered.
+
+\subsubsection{Multi-photon pulses}
+The two previous sections dealt with the classification of attacks Eve might perform on a protocol
+that transmits a number of states, representing some string of symbols. In summary, if Eve can only be
+expected to perform individual attacks, then the threshold of QBER before a sifted key becomes insecure
+(assuming an infinite, or finite but large raw key) is $15\%$; if she has unlimited capacity to coherently measure
+the states sent over the quantum channel, then the upper bound is $11\%$. But what if Alice transmits to Bob
+not single quantum states, but instead pulses of multiple states? This is the reality for practical QKD \citep{huttner1995}.
+Usually such weakly pulsed laser sources have low photon number $\mu$ per pulse; typically $\mu \approx 0.1$ \citep{reviewScariani}.
+
+In this circumstance, Eve may perform the PNS attack described above; the effect on security can be quite large
+indeed. Remember that Eve is not restricted in the technology she uses; while all currently known transmission
+mediums incur some loss over distance, Eve could replace the channel between Alice and Bob by a perfect
+lossless channel, and with the extra power gained she is free to discard a certain proportion of pulses. Typical
+attenuation values for optical fibre are on the order of $10^{-2} \si{\dB \km^{-1}}$; most research findings indicate that
+under such conditions security can only be guaranteed over a medium distance; between 50 and $200\si{\km}$, depending on experimental
+parameters and assumptions \citep{perf2protocols, satellites, experimentalComparison}.
+
+But how realistic is a quantum nondemolition measurement, or a lossless channel? In recent times,
+quantum nondemolition measurements have increasingly been the subject of new research \citep{brassard2000};
+ideal quantum nondemolition photon number measurements are beyond current technologies, although it may
+be reasonable to assume that they are possible \citep{nogues1999}.
+
+For Eve to count photon number for a pulse, she must measure it without disturbing the degree of
+freedom encoding the qubit. Eve must then store the qubit, in either a lossless looped
+channel, or by mapping the qubit to quantum memory. This may be unrealistic;
+as noted above, there is no perfect physical medium
+for transmission, even in theory, due to unavoidable Rayleigh scattering.
+Attenuation of the qubits Eve has stored reduces her information, and Alice and Bob
+may wait minutes before carrying out the sifting phase \citep{reviewScariani}; consequently, even if she chooses to
+use the quantum memory, it must have close to unlimited decoherence time. Two possibilities left for Eve are suggested
+by \citet{gisin2002}; either she must use high-fidelity, near lossless quantum teleportation of the qubits, or
+she can convert the photons to another wavelength, again without disturbing the qubit. In the forseeable future,
+neither option is realistic; however advances in quantum and optical technologies may make PNS attacks a serious threat.
+
 %------------------------------------------------
 
 
