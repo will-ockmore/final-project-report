@@ -2,9 +2,7 @@
 \contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {section}{\numberline {2}The BB84 and B92 prepare and measure protocols}{2}
 \contentsline {subsection}{\numberline {2.1}BB84}{3}
-\contentsline {subsubsection}{\numberline {2.1.1}The protocol}{3}
 \contentsline {subsection}{\numberline {2.2}B92}{3}
-\contentsline {subsubsection}{\numberline {2.2.1}The protocol}{3}
 \contentsline {subsection}{\numberline {2.3}Discussion}{4}
 \contentsline {section}{\numberline {3}Limitations of QKD - Eavesdropping techniques}{4}
 \contentsline {subsection}{\numberline {3.1}Intecept-resend}{5}
@@ -15,3 +13,4 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Individual attacks}{6}
 \contentsline {subsubsection}{\numberline {3.3.2}Coherent attacks}{6}
 \contentsline {subsubsection}{\numberline {3.3.3}Multi-photon pulses}{8}
+\contentsline {section}{Glossary}{10}

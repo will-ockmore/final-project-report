@@ -64,6 +64,10 @@
 
 \usepackage{fancyhdr} % Custom headers and footers
 
+\usepackage[toc, nonumberlist]{glossaries} % Glossary, acronyms
+\setacronymstyle{long-short}
+\makenoidxglossaries
+
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead{} % No page header - if you want one, create it in the same way as the footers below
 \fancyfoot[L]{} % Empty left footer
@@ -78,6 +82,13 @@
 \numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 
 % \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	Glossary and bibliography
+%----------------------------------------------------------------------------------------
+
+\loadglsentries{glossary.tex}
+\glsaddall
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -143,6 +154,10 @@ The search methodology used in this report involved first doing a broad search o
 tools, and then narrowing the scope through progressively more specific boolean search terms; then using papers already found to aid understanding
 of the research area, and to provide other papers to study in the form of references.
 
+%----------------------------------------------------------------------------------------
+%	Classic protocols
+%----------------------------------------------------------------------------------------
+
 \section{The BB84 and B92 prepare and measure protocols}
 
 In this chapter, we give a description of two QKD protocols; BB84 and B92.
@@ -158,7 +173,7 @@ time \citep{historyBrassard}; it would grow to become the most well known
 and widely tested example of a QKD protocol. Today, it serves as
 the benchmark against which all others are measured.
 
-\subsubsection{The protocol}
+\subsubsection*{The protocol}
 In BB84, Alice uses a single photon source to transmit a set of states to Bob,
 encoded in the polarization of the photons. Both Alice and Bob agree to align
 their polarizers in either the vertical/horizontal ($+$) basis, or the
@@ -195,7 +210,7 @@ most minimalist QKD protocol in terms of encoding. Described by \citet{B92},
 the B92 coding allows the receiver to learn whenever they get
 the bit sent without further discussion from Alice.
 
-\subsubsection{The protocol}
+\subsubsection*{The protocol}
 B92 can be carried out using the two bases used in BB84. Following on from the above description, Alice sends either
 $\ket{H}$ or $\ket{+45}$, and Bob chooses to measure the incoming bit in either the ($\times$) or the ($+$)
 basis. Both of these states code for 0 in BB84; if Bob measures the state that codes for 1 ($\ket{-45}$ or
@@ -229,6 +244,10 @@ these protocols would provide complete security with no extensions required.
 However, this is not the case for practical applications of QKD;
 as discussed in the following chapter, BB84 and B92 are highly susceptible to
 Eve's methods when real world limitations are present on the protocols.
+
+%----------------------------------------------------------------------------------------
+%	Limitations of the classical protocols
+%----------------------------------------------------------------------------------------
 
 \section{Limitations of QKD - Eavesdropping techniques}
 In most literature on QKD, Eve is assumed, for the completeness of security proofs, to have no restrictions
@@ -430,5 +449,9 @@ neither option is realistic; however advances in quantum and optical technologie
 
 
 %----------------------------------------------------------------------------------------
+
 \bibliography{bibliography.bib}
+
+\printnoidxglossaries
+
 \end{document}
