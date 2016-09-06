@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex EMA"] 1473192879 "EMA.aux" "EMA.bbl" "EMA" 1473192898
+["bibtex EMA"] 1473197156 "EMA.aux" "EMA.bbl" "EMA" 1473197158
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "EMA.aux" 1473192898 3965 56cf4eecf0f5af1c1040e12f9c4a7d89 ""
+  "EMA.aux" 1473197158 4461 cf9134053c1f537df2d028dc01f89f05 ""
   "EMA.bcf" 0 -1 0 ""
-  "bibliography.bib" 1472766512 12140 bb90e60e59ddc358224cff526ad87c5e ""
+  "bibliography.bib" 1473195521 12592 2421a24e9fba5a82caa4098030faaea8 ""
   (generated)
   "EMA.blg"
   "EMA.bbl"
-["pdflatex"] 1473192897 "EMA.tex" "EMA.pdf" "EMA" 1473192898
+["pdflatex"] 1473197157 "EMA.tex" "EMA.pdf" "EMA" 1473197158
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/eccc1095.tfm" 1136768653 3072 1b1df026a15993ee98d265b49cf8d5f2 ""
@@ -54,6 +54,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm" 1136768653 768 d7b9a2629a0c353102ad947dc9221d49 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -170,15 +171,15 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469382309 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469382374 3873397 2a7d786fcd25936dd85fb42445e94ddb ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "EMA.aux" 1473192898 3965 56cf4eecf0f5af1c1040e12f9c4a7d89 ""
-  "EMA.bbl" 1473192879 4656 81ff72916cae23cc7ff613b8b23d5aaa "bibtex EMA"
-  "EMA.tex" 1473192896 25603 914181f7c933043f24b8f380ec773e30 ""
-  "EMA.toc" 1473192898 1057 9cdcfdbd925066182a9f2eae45dbbd8a ""
-  "glossary.tex" 1473192148 595 8f8629de5e6dd216c7ccfbeb7599c427 ""
+  "EMA.aux" 1473197158 4461 cf9134053c1f537df2d028dc01f89f05 ""
+  "EMA.bbl" 1473197157 4656 81ff72916cae23cc7ff613b8b23d5aaa "bibtex EMA"
+  "EMA.tex" 1473196275 25603 914181f7c933043f24b8f380ec773e30 ""
+  "EMA.toc" 1473197158 1057 9cdcfdbd925066182a9f2eae45dbbd8a ""
+  "glossary.tex" 1473197151 2101 529e8bda098869be5b2594c0143ee212 ""
   (generated)
   "EMA.ist"
-  "EMA.pdf"
+  "EMA.toc"
   "EMA.glo"
+  "EMA.pdf"
   "EMA.aux"
   "EMA.log"
-  "EMA.toc"

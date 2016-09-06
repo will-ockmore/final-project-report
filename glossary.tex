@@ -3,11 +3,41 @@ name={Ultimate security proof},
 description={An ultimate proof guarantees security against entire classes of eavesdropping attacks, even if Eve has access to unlimited technology}
 }
 
-\newglossaryentry{qkd} {name={Quantum key distribution},
+\newglossaryentry{qkd} {name={Quantum key distribution (QKD)},
 description={Quantum key distribution refers to the sharing of cryptographic keys using a quantum channel, to take advantage of coherence effects to guarantee security of the resulting key}
 }
 
 \newglossaryentry{qchannel} {
 name={Quantum channel},
 description={A transmission path that allows the sharing of quantum states}
+}
+
+\newglossaryentry{qber} {
+name={Quantum bit error rate (QBER)},
+description={The ratio of wrong bits against the total detected bits after the sifting phase, as measured by Bob}
+}
+
+\newglossaryentry{refPulse} {
+name={Strong reference pulse},
+description={A pulse transmitted as a phase reference, at a much higher photon number than the weak signal pulse, with the aim of preventing Eve from blocking the entire signal without introducing error}
+}
+
+\newglossaryentry{edp} {
+name={Entanglement distillation protocol (EDP)},
+description={A QKD protocol that makes use of non-local effects, rather than state orthogonality, to transmit a secret key}
+}
+
+\newglossaryentry{photonNumber} {
+name={Photon number},
+description={The average number of photons in a pulse - typical values are $\mu \approx 0.1$}
+}
+
+\newglossaryentry{nondemmeasurement} {
+name={Quantum non-demolition measurement},
+description={A special type of measurement where the uncertainty of the measured observable does not increase. Typically in the context of QKD refers to counting photon number without disturbing polarisation (or phase) hence preserving the encoding}
+}
+
+\newglossaryentry{shannonEntropy} {
+name={Shannon entropy},
+description={A measure of information contained in a message, as a function of characters (qubits or states) in a given stream. Given by the formula $H = -\sum_i p_i \mathrm{log}_b p_i$, where $p_i$ is the probability of character $i$ from character set of size $b$ showing up in the output stream}
 }
