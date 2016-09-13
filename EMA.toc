@@ -1,16 +1,23 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}Introduction}{2}
-\contentsline {section}{\numberline {2}The BB84 and B92 prepare and measure protocols}{2}
-\contentsline {subsection}{\numberline {2.1}BB84}{3}
-\contentsline {subsection}{\numberline {2.2}B92}{3}
-\contentsline {subsection}{\numberline {2.3}Discussion}{4}
-\contentsline {section}{\numberline {3}Limitations of QKD - Eavesdropping techniques}{4}
-\contentsline {subsection}{\numberline {3.1}Intecept-resend}{5}
-\contentsline {subsection}{\numberline {3.2}Photon Number Splitting attack - PNS}{5}
-\contentsline {subsubsection}{\numberline {3.2.1}BB84}{5}
-\contentsline {subsubsection}{\numberline {3.2.2}B92}{5}
-\contentsline {subsection}{\numberline {3.3}Classification of eavesdropping strategies and further discussion}{6}
-\contentsline {subsubsection}{\numberline {3.3.1}Individual attacks}{6}
-\contentsline {subsubsection}{\numberline {3.3.2}Coherent attacks}{6}
-\contentsline {subsubsection}{\numberline {3.3.3}Multi-photon pulses}{8}
-\contentsline {section}{Glossary}{10}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}The BB84 and B92 prepare and measure protocols}{4}
+\contentsline {subsection}{\numberline {2.1}BB84}{4}
+\contentsline {subsection}{\numberline {2.2}B92}{5}
+\contentsline {subsection}{\numberline {2.3}Discussion}{5}
+\contentsline {section}{\numberline {3}Limitations of QKD - Eavesdropping techniques}{6}
+\contentsline {subsection}{\numberline {3.1}Intecept-resend}{6}
+\contentsline {subsection}{\numberline {3.2}Photon Number Splitting attack - PNS}{6}
+\contentsline {subsubsection}{\numberline {3.2.1}BB84}{6}
+\contentsline {subsubsection}{\numberline {3.2.2}B92}{7}
+\contentsline {subsection}{\numberline {3.3}Classification of eavesdropping strategies and further discussion}{7}
+\contentsline {subsubsection}{\numberline {3.3.1}Individual attacks}{7}
+\contentsline {subsubsection}{\numberline {3.3.2}Coherent attacks}{8}
+\contentsline {subsubsection}{\numberline {3.3.3}Multi-photon pulses}{9}
+\contentsline {section}{\numberline {4}The SARG04 protocol}{11}
+\contentsline {subsection}{\numberline {4.1}The protocol}{11}
+\contentsline {subsection}{\numberline {4.2}Benefits of SARG04}{11}
+\contentsline {subsection}{\numberline {4.3}Limitations}{12}
+\contentsline {subsubsection}{\numberline {4.3.1}Single photon implementation}{12}
+\contentsline {subsubsection}{\numberline {4.3.2}Key generation rate}{13}
+\contentsline {subsubsection}{\numberline {4.3.3}Decoy states}{14}
+\contentsline {section}{Glossary}{17}

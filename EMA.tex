@@ -117,10 +117,10 @@
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
-
+\clearpage
 \section{Introduction}
 
-Quantum key distribution is the study of quantum mechanics
+Quantum key distribution (QKD) is the study of quantum mechanics
 as a mechanism to share an unconditionally secure key between two parties. Since the first
 protocol (BB84 or the four-state protocol) was proposed in the mid 1980s \citep{BB84},
 the field has slowly grown; it now encompasses many different
@@ -147,8 +147,8 @@ to BB84 and others, and discusses the impact of decoy states and other practical
 
 The objectives for the report are as follows: to give a brief history of QKD and its possible impact on current
 society; to discuss the limitations of historical protocols in the real world; to give a detailed analysis of the
-SARG04 protocol and its benefits over previous protocols; and finally to give a brief outline of real world improvements
-and limitations, either through practical engineering or new techniques.
+SARG04 protocol and its benefits over previous protocols; and finally to outline possible improvements,
+either through practical engineering or new theory.
 
 The search methodology used in this report involved first doing a broad search of academic articles, using google scholar and similar
 tools, and then narrowing the scope through progressively more specific boolean search terms; then using papers already found to aid understanding
@@ -157,7 +157,7 @@ of the research area, and to provide other papers to study in the form of refere
 %----------------------------------------------------------------------------------------
 %	Classic protocols
 %----------------------------------------------------------------------------------------
-
+\clearpage
 \section{The BB84 and B92 prepare and measure protocols}
 
 In this chapter, we give a description of two QKD protocols; BB84 and B92.
@@ -248,7 +248,7 @@ Eve's methods when real world limitations are present on the protocols.
 %----------------------------------------------------------------------------------------
 %	Limitations of the classical protocols
 %----------------------------------------------------------------------------------------
-
+\clearpage
 \section{Limitations of QKD - Eavesdropping techniques}
 In most literature on QKD, Eve is assumed, for the completeness of security proofs, to have no restrictions
 on her eavesdropping, other than the fundamental limitations of quantum mechanics itself; namely, the
@@ -418,7 +418,8 @@ expected to perform individual attacks, then the threshold of QBER before a sift
 (assuming an infinite, or finite but large raw key) is $15\%$; if she has unlimited capacity to coherently measure
 the states sent over the quantum channel, then the upper bound is $11\%$. But what if Alice transmits to Bob
 not single quantum states, but instead pulses of multiple states? This is the reality for practical QKD \citep{huttner1995}.
-Usually such weakly pulsed laser sources have low photon number $\mu$ per pulse; typically $\mu \approx 0.1$ \citep{reviewScariani}.
+Usually such weakly pulsed laser sources have low photon number $\mu$ per pulse, so that most pulses contain
+just one photon; typically $\mu \ll 1$ \citep{reviewScariani}.
 
 In this circumstance, Eve may perform the PNS attack described above; the effect on security can be quite large
 indeed. Remember that Eve is not restricted in the technology she uses; while all currently known transmission
@@ -445,6 +446,150 @@ by \citet{gisin2002}; either she must use high-fidelity, near lossless quantum t
 she can convert the photons to another wavelength, again without disturbing the qubit. In the forseeable future,
 neither option is realistic; however advances in quantum and optical technologies may make PNS attacks a serious threat.
 
+
+%----------------------------------------------------------------------------------------
+%	SARG04
+%----------------------------------------------------------------------------------------
+
+\clearpage
+\section{The SARG04 protocol}
+In this chapter, the SARG04 protocol, first described in \citet{SARG04orig} is explained in the context of previously discussed protocols.
+Its benefits and limitations are analysed, with reference to real world experiments and applications.
+
+\subsection{The protocol}
+SARG04 as a protocol is very similar to BB84; in fact, the steps followed by Alice and Bob are identical until the classical sifting phase.
+The same setup can be used in both cases, which makes comparison of the two protocols straightforward.
+
+The same four states are used in SARG04 as in BB84; however rather than the state sent coding for the bit, the basis itself is used, as in B92.
+After the raw key has been transmitted, Alice declares for each qubit one of four pairs of
+non-orthogonal states $A_{\omega, \omega'} \left\{ \ket{\omega x}, \ket{\omega' z}\right\}$ with $\omega, \omega' \in \{ +, -\}$
+and the convention that $\ket{\pm x}$ code for 0 and $\ket{\pm z}$ code for 1 \citep{SARG04orig}. Any two non-orthogonal bases $\sigma_x$
+and $\sigma_z$ may be used; for example the + and $\times$ polarisation bases used in the earlier description of BB84 and B92. Within each set $A_{\omega, \omega'}$
+the overlap of the two states is $\chi = \frac{1}{\sqrt{2}}$.
+
+The procedure for extracting the bit values is outlined in the following example. Suppose Alice sends $\ket{-x}$ and declares $A_{- +}$.
+If Bob has received this particular bit in the $\sigma_x$ basis, he will measure $\ket{-x}$ with certainty. He cannot be certain that Alice did
+not send $\ket{+z}$ in this circumstance. However if he receives in the $\sigma_z$ basis, he will measure $\ket{-z}$ with probability $\frac{1}{2}$.
+As this state is contradictory to the second member of the pair communicated by Alice, Bob knows that, in the absence of errors, Alice must have sent $\ket{-x}$.
+
+\subsection{Benefits of SARG04}
+As Alice does not communicate basis over the classical channel during the sifting phase, Eve does not have the ability to
+unambiguously determine the measurement basis for a qubit. For all two-photon pulses she now cannot be certain of achieving
+a valid result; for three photon pulses, she must implement an unambiguous state discrimination measurement $\mathcal{M}$, which succeeds with probability
+$\frac{1}{2}$ \citep{branciardSARG04}. Hence in the case of two-photon pulses SARG04 is still provably secure, where BB84 is not \citep{perf2protocols}.
+
+To attack SARG04 Eve may implement a specific version of the PNS attack; discarding all one- and two-photon pulses,
+she performs $\mathcal{M}$, and with a conclusive result (occuring with probability $\frac{1}{2}$) she sends a new photon prepared in the good state to Bob.
+This attack is referred to as \textit{intercept-resend with unambiguous discrimination attack} (IRUD) \citep{SARG04orig}. It needs neither the quantum memory or
+the lossless channel, as the new state can be prepared at some location close to Bob. There is a critical channel attenuation $\delta_c$ at which IRUD is
+always possible; for a conservative estimate of $\mu = 0.2$ as given in the original paper, $\delta_c = 25.6 \si{\dB} \approx 2\delta_c^{\mathrm{BB84}}$. Hence under
+the circumstance of zero external QBER and incoherent attack, SARG04 gives twice the secure distance as BB84. This was independently verified by \citet{branciardSARG04}.
+In their paper it was also shown that SARG04 has a higher secret key rate than BB84 under realistic source conditions and under the assumption of incoherent attack by Eve.
+Their results for a Poisonnian attenuated laser source are shown in Figure 4.1.
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{branciard-graph.png}
+	\caption{Optimal $\mu$ and upper bound for secret key rate per pulse $R_{sk}$ with
+	channel losses $\alpha=0.25\si{\dB \km^{-1}}$, detector quantum efficiency $\eta = 0.1$, dark count
+	probability $p_d = 10^{-5}$, and channel visibility $V=$ 1, 0.95. The thick lines
+	are results for SARG04, thin lines BB84. \citep{branciardSARG04}}
+\end{figure}
+
+\subsection{Limitations}
+\subsubsection{Single photon implementation}
+In a single photon implementation, the upper bound on the attainable secret key rate is given by \citet{csiszarAssump} as
+
+\begin{align}
+r \leq R_{sk} = \max_{A \rightarrow A'}
+\left\{
+I(A':B) - I(A': E)
+\right\}
+\end{align}
+
+where $A'$ represents any preprocessing performed by Alice, which gains a slight increase on the QBER bound where the secret key
+becomes zero. This leads to the corresponding bounds for single photon SARG04 and BB84 as given in \citet{bounds, branciardSARG04}:
+
+\bgroup
+\def\arraystretch{1.2}% 1 is default, makes bigger spacing
+\begin{center}
+\begin{tabular}{c c c}
+\hline
+BB84 						& Lower & $Q \leq 12.4\%$ \\
+\hphantom{BB84}	& Upper & $Q \geq 14.6\%$\\
+\hline
+SARG04  				& Lower & $Q \leq 10.95\%$ \\
+\hphantom{BB84}	& Upper & $Q \geq 14.9\%$\\
+\hline
+\end{tabular}
+\end{center}
+\egroup
+
+This however does not take into account channel noise and subsequent reduction in visibility. In the case of a channel with
+neligible dark count rate, the error rate on the sifted key is a function of the visibility. In the example of BB84, when
+when the good basis is chosen the probabilities of a right or wrong measurement are $p_{\mathrm{right}} = \frac{1+V}{2}$ and
+$p_{\mathrm{wrong}} = \frac{1-V}{2}$. This leads to
+
+\begin{align}
+	Q_{\mathrm{BB84}} =
+	\frac{p_{\mathrm{wrong}}}{p_{\mathrm{right}} + p_{\mathrm{wrong}}}
+	= \frac{1-V}{2}
+\end{align}
+
+As SARG04 codes by basis, whenever Bob accepts the good encoding basis (the one not used by Alice), he guesses right.
+This is independent of the visibility so $p_{\mathrm{right}} = \frac{1}{2}$. If he chooses the wrong basis and accepts,
+then this is due to error, and occurs with $p_{\mathrm{wrong}} = \frac{1-V}{2}$.
+
+\begin{align}
+	Q_{\mathrm{SARG04}} =
+	\frac{p_{\mathrm{wrong}}}{p_{\mathrm{right}} + p_{\mathrm{wrong}}}
+	= \frac{1-V}{2-V}
+	\approx 1-V
+\end{align}
+
+Hence for a fixed visibility, the QBER is almost twice that of BB84 \citep{branciardSARG04}. Thus although the error bounds
+are comparable, they are more restrictive for an implementation of SARG04 and the protocol is more sensitive to error in the channel.
+
+\subsubsection{Key generation rate}
+The nature of SARG04's sifting phase means that Bob may only accept on average $\frac{1}{4}$ bits. This is in contrast to BB84, where
+choosing the correct measurement basis occurs 50\% of the time, hence Bob accepts $\frac{1}{2}$. The raw key generation rate for a general protocol,
+under zero channel losses is
+
+\begin{align}
+R = \nu_s P_b
+\end{align}
+
+where $\nu_s$ is the repetition rate and $P_b$ is the probability that Bob accepts a bit. For a given source
+
+\begin{align}
+	R_{\mathrm{SARG04}} = \frac{\nu_s}{4} = \frac{R_{\mathrm{BB84}}}{2}
+\end{align}
+
+Under the same conditions, $\mu$ for SARG04 must then be twice that of BB84 for the same raw key rate \citep{perf2protocols, SARG04orig}.
+In practical applications of the protocol this is a serious limitation; also, if Eve is not present then the use of SARG04 over BB84 is penalised
+with no associated benefit.
+
+\subsubsection{Decoy states}
+Decoy states were first proposed by \citet{decoyOrig} with one- and two-photon signals, with the more popular and realistic
+intensity modulation implementation put forward soon after \citep{lo2005}. The central idea behind decoy states is to randomly
+change some tunable parameter $\xi$ in the protocol (most commonly the photon number/intensity $\mu$); using some subset
+of possible values for the parameter to conduct the protocol itself, Alice and Bob then have a set of linear equations dependent
+on the channel properties.
+
+After transmitting the set of qubits whilst changing $\xi$ randomly, Alice reveals the list of values $\xi \in \chi$,
+and after sorting the data Alice and Bob now have a linear system of $2\abs{\chi}$ equations - in the case of $\xi = \mu$
+these are
+
+\begin{align}
+R^\xi	= \sum_{n\geq0} R^\xi_n
+\quad
+\mathrm{and}
+\quad
+Q^\xi = \sum_{n\geq 0} \frac{R^\xi_n}{R^\xi}\epsilon_n
+\end{align}
+
+If Alice and Bob know the characteristics of their setup, they can determine with high confidence the expected
+$R$ and $Q$ for a particular $\xi$; hence if Eve takes any action that will change either value substantially,
+the participants can detect her presence. This greatly limits her options \citep{lo2005, reviewScariani}
 %------------------------------------------------
 
 
@@ -452,6 +597,7 @@ neither option is realistic; however advances in quantum and optical technologie
 
 \bibliography{bibliography.bib}
 
+\clearpage
 \printnoidxglossaries
 
 \end{document}

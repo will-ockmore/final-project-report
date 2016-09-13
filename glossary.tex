@@ -29,7 +29,7 @@ description={A QKD protocol that makes use of non-local effects, rather than sta
 
 \newglossaryentry{photonNumber} {
 name={Photon number},
-description={The average number of photons in a pulse - typical values are $\mu \approx 0.1$}
+description={The average number of photons in a pulse - typical values are $\mu \ll 1$}
 }
 
 \newglossaryentry{nondemmeasurement} {
@@ -40,4 +40,9 @@ description={A special type of measurement where the uncertainty of the measured
 \newglossaryentry{shannonEntropy} {
 name={Shannon entropy},
 description={A measure of information contained in a message, as a function of characters (qubits or states) in a given stream. Given by the formula $H = -\sum_i p_i \mathrm{log}_b p_i$, where $p_i$ is the probability of character $i$ from character set of size $b$ showing up in the output stream}
+}
+
+\newglossaryentry{rawKey} {
+name={Raw key},
+description={The sequence of bits received by Bob, prior to the sifting phase. The raw key rate is the rate at which Bob is able to receive the bits sent by Alice, and is given by $R = \nu_s P_b$, where $\nu_s$ is the repetition rate, and $P_b$ is the probability that Bob accepts a bit.}
 }
