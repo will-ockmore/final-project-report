@@ -83,6 +83,8 @@
 
 % \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
 
+\newcommand{\secstar}[1]{\addcontentsline{toc}{section}{#1}\section*{#1}}
+
 %----------------------------------------------------------------------------------------
 %	Glossary and bibliography
 %----------------------------------------------------------------------------------------
@@ -112,6 +114,31 @@
 
 \maketitle % Print the title
 
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\secstar{Abstract}
+Quantum key distribution (QKD) allows two parties to share an unconditionally secure key by
+means of a quantum channel, where eavesdropping can be detected in the signal itself.
+In this critical literature review, the two of the most prominent prepare and measure protocols are
+described, with focus on their sifting phase. The limitations of these protocols are analysed,
+centering on the Photon Number-Splitting (PNS) attack as an eavedropping method.
+A more recent protocol, SARG04, is detailed, and its benefits and limitations relative to
+these previous protocols are described at length, with particular focus on the comparison with BB84.
+Within this analysis, it is found that BB84 with decoy states has a higher secret key rate and secure
+distance, under realistic experimental parameter sets, than SARG04 with decoy states. This is the case
+even in the scenario of two photon pulses, for which SARG04 was developed. The only exception
+is the case of a channel with very low quantum bit error, and a multi-photon pulsed source,
+with the expectation that SARG04 is used when Eve (an eavesdropper) is present.
+
+
+%----------------------------------------------------------------------------------------
+%	CONTENTS
+%----------------------------------------------------------------------------------------
+
+\clearpage
+\addcontentsline{toc}{section}{Contents}
 \tableofcontents
 
 %----------------------------------------------------------------------------------------
@@ -133,16 +160,15 @@ of the states sent. If the error is within the acceptable bounds, they can be su
 their key is secure, and communicate the basis used for the rest of the states. In this
 way, the unconditional security is achieved.
 
-One major problem with BB84 is its reliance on a single photon source for true unconditional security.
-Consider the ideal for Eve (eavesdropper); no restrictions are made on her technology or capability other
-than the laws of physics. It is then clear that if the source used to send the key sends two or more quantum
+One major problem with BB84 is its reliance on a single photon source for unconditional security.
+Eve (the eavesdropper) has no restrictions other than the laws of physics. If the source used to send the key sends two or more quantum
 states per bit, Eve can execute a Photon Number Splitting (PNS) attack; for every pulse of two or more photons,
 she stores one state and lets the other state(s) continue on to Bob. Once Alice reads out the bases she used, Eve
-will therefore have the complete key without the knowledge of the other participants; the security is lost. This
+will therefore have the complete key without the knowledge of the other participants. This
 can be generalised to all prepare and measure protocols.
 
 The area of study for this report focuses on the use of a recent protocol, SARG04, as a means to improve the
-robustness against PNS attacks as compared to the standard prepare and measure protocols. It compares its efficacy
+robustness against PNS attacks. It compares its efficacy
 to BB84 and others, and discusses the impact of decoy states and other practical methods to increase security.
 
 The objectives for the report are as follows: to give a brief history of QKD and its possible impact on current
@@ -161,23 +187,19 @@ of the research area, and to provide other papers to study in the form of refere
 \section{The BB84 and B92 prepare and measure protocols}
 
 In this chapter, we give a description of two QKD protocols; BB84 and B92.
-They both belong to the family of \textit{prepare and measure} protocols, and as
-such rely on sending individual quantum states (qubits), rather than coding
-via entangled pairs or other means.
+They both belong to the family of \textit{prepare and measure} protocols, which
+involve sending individual quantum states (qubits) down a quantum channel,
+to be measured by a receiver at the other end.
 
 \subsection{BB84}
 
-The BB84 protocol was the first proposed QKD protocol, introduced at
-an IEEE conference in India by \citet{BB84}, to little fanfare at the
-time \citep{historyBrassard}; it would grow to become the most well known
-and widely tested example of a QKD protocol. Today, it serves as
-the benchmark against which all others are measured.
+BB84 was the first proposed QKD protocol \citep{BB84, historyBrassard}.
 
 \subsubsection*{The protocol}
-In BB84, Alice uses a single photon source to transmit a set of states to Bob,
-encoded in the polarization of the photons. Both Alice and Bob agree to align
+In BB84, Alice uses a single photon source to transmit a set of polarization states to Bob.
+Both Alice and Bob agree to align
 their polarizers in either the vertical/horizontal ($+$) basis, or the
-complementary basis of $\pm 45 \degree$  ($\times$). Alice then transmits a set of photons
+complementary basis of $\pm 45 \degree$  ($\times$). Alice then transmits her set
 down the quantum channel, randomly choosing one of the two bases for each
 photon, whilst Bob measures in his choice of basis for each photon received.
 
@@ -190,7 +212,7 @@ photon, whilst Bob measures in his choice of basis for each photon received.
 \end{tabular}
 \end{center}
 
-Both Alice and Bob now have a list of sent of received bits, each with a basis. The second
+Both Alice and Bob now have a list of sent or received bits, each with a basis. The second
 phase of the protocol is the classical sifting step: over the unsecured classical channel, they
 first start by comparing which bases were used for each bit, and discarding the bits for which
 they used different bases. For a list of size $N$ this step will on average reduce its size by half,
@@ -217,16 +239,15 @@ basis. Both of these states code for 0 in BB84; if Bob measures the state that c
 $\ket{V}$ respectively) he can be certain that Alice transmitted her bit in the opposite basis. Hence, B92
 allows the participants to restrict their transmissions in the sifting phase to whether or not Bob made
 a conclusive measurement for each bit sent. After discarding all bits for which Bob cannot be certain, the raw
-key they are left with is on average $N/4$ bits long, for an initial transmission of $N$ bits.
+key they are left with is on average $N/4$ bits long, for an initial transmission of $N$ bits \citep{B92}.
 
 After a simple comparison of raw key length to the length of the initial string sent by Alice for the classical
 post processing step, the participants either possess a secret key, or have been alerted to the possibility
 of Eve's presence.
 
 \subsection{Discussion}
-The BB84 and B92 protocols are two of the most rigourously tested QKD protocols, with many published articles
-on their relative strengths and weaknesses. Ultimate proofs exist for both; a well known one for BB84
-by \citet{proofBB84}; and similarly, for B92 there is \citet{tamakiProofB92}. Both of these proofs rely on
+Ultimate proofs exist for both protocols; a well known one for BB84
+by \citet{proofBB84}; and similarly, for B92 there is \citet{tamakiProofB92}. Both rely on
 conversion to EDP entanglement protocols; shortly after the first entanglement-based QKD protocol was
 described by \citet{E91}, prepare-and-measure protocols were shown to have equivalent entanglement-based
 versions by \citet{edpEquivProof}. It must be noted, however, that the above proofs are valid only
@@ -239,11 +260,10 @@ to rely on a strong reference pulse to guard against
 losses and noise; again the security of this implementation has been proven
 \citep{tamakiStrongRefProofB92}.
 
-In an idealised world, where perfect single photon sources were available,
-these protocols would provide complete security with no extensions required.
+If perfect single photon sources were easily available,
+these protocols would provide complete security, with no extensions required.
 However, this is not the case for practical applications of QKD;
-as discussed in the following chapter, BB84 and B92 are highly susceptible to
-Eve's methods when real world limitations are present on the protocols.
+as discussed in the following chapter, real world limitations have a large impact.
 
 %----------------------------------------------------------------------------------------
 %	Limitations of the classical protocols
@@ -265,47 +285,43 @@ or the $+$ basis. If she has measured in the basis used by Alice, the photon con
 and Eve has obtained full information whilst introducing no errors to the signal. However, if she has measured
 in the wrong basis, her result will be uncorrelated with Alice's; meanwhile, she will have sent along
 a modified state, so even if Bob measures in the same basis as sent by Alice, half the time he will get the
-wrong result. \citep{reviewScariani}
+wrong result \citep{reviewScariani}.
 
 
 \subsection{Photon Number Splitting attack - PNS}
 In real world applications of QKD, the photon source is never a true strong single photon emitter. Typically
-a weak coherent pulse laser source is used. \citep{satellites}
+a weak coherent pulse laser source is used \citep{satellites}.
 These sources emit pulses of coherent states, often containing 2 or more photons.
 
 This presents a problem for the security of BB84 and B92, as described below.
 
-\subsubsection{BB84}
+\subsubsection*{BB84}
 The security weakness in coherent pulses comes from Eve's ability to nondestructively determine the number of photons
 in a pulse. The principle of the PNS attack is that Eve will block all single photon pulses, and for any pulse where
 multiple photons are detected, Eve will store in quantum memory a subset of the pulse, while allowing the rest to continue
-on to Bob (through an ideal quantum channel, to ensure his receipt of the photons). During the sifting
+on to Bob (through an ideal quantum channel, to ensure he receives the photons). During the sifting
 phase, Alice and Bob's communications over the public channel can be used by Eve to construct
 a complete key from the stored states. The major benefit to Eve with this method is that it does not introduce an error in the
-states received by Bob; in fact, the only risk of detection comes from the losses due to single photon pulses being blocked \citep{kronberg2009}.
+states received by Bob; the only risk of detection comes from the losses due to single photon pulses being blocked \citep{kronberg2009}.
 
 As long as these losses do not reach a critical threshold (dependent on the length of the communication channel and the expected losses),
 Eve's actions remain undetected, and the security of the protocol is compromised.
 
 
-\subsubsection{B92}
-Against B92, the PNS attack is even more straightforward. No quantum memory is required; all that is sufficient is that Eve performs
-the same measurement as Bob, and blocks the message in the event of an inconclusive result \citep{kronberg2009}. In this way, the losses are attributed
-to channel losses; as long as a critical threshold is not reached (as above), Eve will obtain full information of the key. Again, due to
-the lack of error in the received states, Eve will remain entirely unnoticed.
+\subsubsection*{B92}
+Against B92, PNS attack is even more straightforward. No quantum memory is required; Eve performs
+the same measurement as Bob, and blocks the message in the event of an inconclusive result \citep{kronberg2009}. The losses are attributed
+to channel losses; as long as a critical threshold is not reached (as above), Eve will obtain full information of the key whilst remaining unnoticed.
 
 \subsection{Classification of eavesdropping strategies and further discussion}
 Strategies for eavesdropping on QKD protocols can be generally split into two main groups;
 \textit{individual} and \textit{coherent}. Individual attacks involve
-Eve probing each qubit individually as she recieves them, whereas for coherent attacks
-she may process multiple qubits at a time, and measure them \textit{coherently}; for
-instance, she can store them in quantum memory, and need not measure the qubits until
-some later point \citep{gisin2002}. The two types have different consequences for generating
-a truly secure key.
+Eve probing each qubit individually as she recieves them; for coherent attacks
+she may process multiple qubits at a time, and measure them \textit{coherently} \citep{gisin2002}.
 
-\subsubsection{Individual attacks}
-Individual attacks impose a higher limitation on Eve, as she cannot wait for the participants to enact the sifting
-phase before she takes her measurements - she must measure sequentially, as must Bob. Intercept-resend is classified as an individual attack.
+\subsubsection*{Individual attacks}
+Individual attacks impose a higher limitation on Eve, as she cannot wait for the sifting
+phase before she takes her measurements - she must measure sequentially. Intercept-resend is classified as an individual attack.
 
 In intercept-resend, after she has completed the process,
 Eve is left with full information of half the bits in the full key ($I_E = 0.5$).
@@ -337,7 +353,7 @@ The point at which this advantage shifts to Eve can be expressed as a specific e
 
 Hence a secure key can only be extracted if $Q \leq 15\%$. \citep{qber15proof, gisin2002, huttner1995}
 
-\subsubsection{Coherent attacks}
+\subsubsection*{Coherent attacks}
 \citet{gisin2002} succintly summarises the work of \citet{proofBB84} and others
 on the subject of coherent attacks; using two theorems, the upper bound is found for the QBER
 of a protocol expected to withstand coherent attack.
@@ -411,39 +427,37 @@ many measurements which return classical, random variables. However, the full pr
 \citet{proofBB84} can still be used even in the event of Eve coherently attacking an unlimited number
 of qubits. Precisely the same bound of $11\%$ QBER is recovered.
 
-\subsubsection{Multi-photon pulses}
-The two previous sections dealt with the classification of attacks Eve might perform on a protocol
-that transmits a number of states, representing some string of symbols. In summary, if Eve can only be
+\subsubsection*{Multi-photon pulses}
+The two previous sections dealt with the classification of attacks Eve might perform. In summary, if Eve can only be
 expected to perform individual attacks, then the threshold of QBER before a sifted key becomes insecure
 (assuming an infinite, or finite but large raw key) is $15\%$; if she has unlimited capacity to coherently measure
 the states sent over the quantum channel, then the upper bound is $11\%$. But what if Alice transmits to Bob
-not single quantum states, but instead pulses of multiple states? This is the reality for practical QKD \citep{huttner1995}.
-Usually such weakly pulsed laser sources have low photon number $\mu$ per pulse, so that most pulses contain
-just one photon; typically $\mu \ll 1$ \citep{reviewScariani}.
+not single quantum states, but instead pulses of multiple states? This is the reality for practical QKD \citep{recentDecoy, huttner1995}.
+Usually such weakly pulsed laser sources have low photon number $\mu$ per pulse; typically $\mu \ll 1$ \citep{reviewScariani}.
 
-In this circumstance, Eve may perform the PNS attack described above; the effect on security can be quite large
-indeed. Remember that Eve is not restricted in the technology she uses; while all currently known transmission
+In this circumstance, Eve may perform the PNS attack described above; the effect on security can be large.
+Remember that Eve is not restricted in the technology she uses; while all currently known transmission
 mediums incur some loss over distance, Eve could replace the channel between Alice and Bob by a perfect
 lossless channel, and with the extra power gained she is free to discard a certain proportion of pulses. Typical
 attenuation values for optical fibre are on the order of $10^{-2} \si{\dB \km^{-1}}$; most research findings indicate that
 under such conditions security can only be guaranteed over a medium distance; between 50 and $200\si{\km}$, depending on experimental
 parameters and assumptions \citep{perf2protocols, satellites, experimentalComparison}.
 
-But how realistic is a quantum nondemolition measurement, or a lossless channel? In recent times,
-quantum nondemolition measurements have increasingly been the subject of new research \citep{brassard2000};
+But how realistic is a quantum nondemolition measurement, or a lossless channel?
+Quantum nondemolition measurements have increasingly been the subject of research \citep{brassard2000};
 ideal quantum nondemolition photon number measurements are beyond current technologies, although it may
-be reasonable to assume that they are possible \citep{nogues1999}.
+be reasonable to assume that they are possible \citep{reviewScariani, nogues1999}.
 
 For Eve to count photon number for a pulse, she must measure it without disturbing the degree of
 freedom encoding the qubit. Eve must then store the qubit, in either a lossless looped
 channel, or by mapping the qubit to quantum memory. This may be unrealistic;
 as noted above, there is no perfect physical medium
-for transmission, even in theory, due to unavoidable Rayleigh scattering.
-Attenuation of the qubits Eve has stored reduces her information, and Alice and Bob
+for transmission, due to unavoidable Rayleigh scattering.
+Attenuation of the qubits reduces her information, and Alice and Bob
 may wait minutes before carrying out the sifting phase \citep{reviewScariani}; consequently, even if she chooses to
 use the quantum memory, it must have close to unlimited decoherence time. Two possibilities left for Eve are suggested
 by \citet{gisin2002}; either she must use high-fidelity, near lossless quantum teleportation of the qubits, or
-she can convert the photons to another wavelength, again without disturbing the qubit. In the forseeable future,
+she can convert the photons to another wavelength, without disturbing the qubit. In the forseeable future,
 neither option is realistic; however advances in quantum and optical technologies may make PNS attacks a serious threat.
 
 
@@ -525,7 +539,7 @@ SARG04  				& Lower & $Q \leq 10.95\%$ \\
 \end{center}
 \egroup
 
-This however does not take into account channel noise and subsequent reduction in visibility. In the case of a channel with
+This does not take into account channel noise and subsequent reduction in visibility. In the case of a channel with
 neligible dark count rate, the error rate on the sifted key is a function of the visibility. In the example of BB84, when
 when the good basis is chosen the probabilities of a right or wrong measurement are $p_{\mathrm{right}} = \frac{1+V}{2}$ and
 $p_{\mathrm{wrong}} = \frac{1-V}{2}$. This leads to
@@ -569,9 +583,15 @@ Under the same conditions, $\mu$ for SARG04 must then be twice that of BB84 for 
 In practical applications of the protocol this is a serious limitation; also, if Eve is not present then the use of SARG04 over BB84 is penalised
 with no associated benefit.
 
+As documented in \citet{experimentalComparison}, this leads (along with SARG04's sensitivity to channel visibility) to BB84 generating
+more secret keys than SARG04 under real world conditions, where devices are imperfect and $V < 1$.
+
 \subsection{Decoy states}
 Decoy states were first proposed by \citet{decoyOrig} with one- and two-photon signals, with the more popular and realistic
-intensity modulation implementation put forward soon after \citep{lo2005}. The central idea behind decoy states is to randomly
+intensity modulation implementation put forward soon after \citep{lo2005}.
+
+\subsubsection*{Description of the technique}
+The central idea behind decoy states is to randomly
 change some tunable parameter $\xi$ in the protocol (most commonly the photon number/intensity $\mu$); using some subset
 of possible values for the parameter to conduct the protocol itself, Alice and Bob then have a set of linear equations dependent
 on the channel properties.
@@ -591,6 +611,7 @@ If Alice and Bob know the characteristics of their setup, they can determine wit
 $R$ and $Q$ for a particular $\xi$; hence if Eve takes any action that will change either value substantially,
 the participants can detect her presence. This greatly limits her options \citep{lo2005, reviewScariani}.
 
+\subsubsection*{Optimum photon number}
 In order to illustrate the benefits gained with decoy states, consider the concept of optimum $\mu$, a
 variable that only becomes relevant beyond the discussion of ideal single-photon sources (as clearly,
 the secret key rate $K$ scales linearly with $\mu$ in the case of a single photon source \citep{gisin2002}). % TODO: CITE
@@ -667,11 +688,51 @@ the detection rate at Bob's by using only photons from 2-photon pulses. With dec
 the fraction of detections that come from 2-photon pulses can be determined; if this fraction
 is as low as is expected, a PNS attack can be ruled out. The major benefit gained is the recovery
 of $K \propto t$ scaling. This is the same as for ideal single-photon sources \citep{lo2005, reviewScariani}.
+
+\subsubsection*{Consequences for SARG04}
+
+A comparison simulation of the performance of SARG04 and BB84 using decoy states was published by \citet{perf2protocols}. With the
+addition of two way classical communications (allowing Alice and Bob to communicate with each other, rather than just
+one-way) it was shown that for all realistic parameter sets, SARG04 had a smaller key generation rate and shorter secure
+distance than BB84. In the case of small QBER, the optimum $\mu$ of SARG04 can be higher than BB84; this does not mean
+however that the key generation rate is necessarily greater, as mentioned earlier. These results are in the case of general
+attack by Eve.
+
+It is interesting that the most robust and performant protocol is still BB84 (albeit with modifications such as the addition of
+decoy states). In recent papers by \citet{recentDecoyBounds, recentDecoy}, the secret key rate was increased to almost $1\si{Mb \s^{-1}}$
+over $50\si{km}$, with reduced sensitivity to finite-size effects; further legitimising real world applications of the protocol.
+Even taking into account the most optimised decoy-state versions of SARG04, they still compare poorly to BB84 \citep{recentDecoySARG04}.
+
+However the caveat that must be properly understood in these comparisons is that decoy states are a method to
+gain knowledge on Eve's attack. If the attack is not taking place, then BB84 with its simpler sifting methodology
+will produce a higher secret key rate; however, if an attack is taking place, then in two photon implementations
+\textit{with small QBER}, SARG04 will generate a key with higher probability. In simple terms,
+if BB84 can generate a key that is secure, it will do so faster; SARG04's application is for the times when this is
+not possible \citep{perf2protocols, reviewScariani}.
+
+\clearpage
+\section{Conclusion}
+In this report, SARG04 was introduced and compared to known prepare and measure protocols. It was found that although
+it brings a novel way to foil a PNS attack by changing the classical communication phase of BB84, once other factors
+of practical application - such as decoy states, key generation rate under imperfect conditions, and lossy channels -
+are brought into account, it compares unfavourably to the original protocol in realistic scenarios.
+
+Extensive analysis was taken on the classical protocols, attack vectors, and the direct limitations of SARG04. Possible improvements
+to the methodology could include additional research into strong reference pulse based security and its implications for the protocol \citep{koashi2004};
+as well as comparison to new protocols that have not yet been fully explored, such as KMB09 \citep{KMB09}.
+
+The initial objectives given were considered before full understanding of the research area had been obtained. However
+in terms of scope, the review has stayed reasonably close to the original outline. A brief history of QKD was given, although
+its impact on society was not fully addressed. Limitations of historical protocols were investigated thoroughly; SARG04 was described
+and its benefits and limitations discussed at length. The real world improvements possible were highlighted in the decoy state
+method, although more was left to be said with regards to further study in the case of SARG04 itself.
+
+
 %------------------------------------------------
 
 
 %----------------------------------------------------------------------------------------
-
+\clearpage
 \bibliography{bibliography.bib}
 
 \clearpage
