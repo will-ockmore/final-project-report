@@ -495,8 +495,9 @@ Their results for a Poisonnian attenuated laser source are shown in Figure 4.1.
 	are results for SARG04, thin lines BB84. \citep{branciardSARG04}}
 \end{figure}
 
-\subsection{Limitations}
-\subsubsection{Single photon implementation}
+\clearpage
+\section{Limitations of SARG04}
+\subsection{Single photon implementation}
 In a single photon implementation, the upper bound on the attainable secret key rate is given by \citet{csiszarAssump} as
 
 \begin{align}
@@ -549,7 +550,7 @@ then this is due to error, and occurs with $p_{\mathrm{wrong}} = \frac{1-V}{2}$.
 Hence for a fixed visibility, the QBER is almost twice that of BB84 \citep{branciardSARG04}. Thus although the error bounds
 are comparable, they are more restrictive for an implementation of SARG04 and the protocol is more sensitive to error in the channel.
 
-\subsubsection{Key generation rate}
+\subsection{Key generation rate}
 The nature of SARG04's sifting phase means that Bob may only accept on average $\frac{1}{4}$ bits. This is in contrast to BB84, where
 choosing the correct measurement basis occurs 50\% of the time, hence Bob accepts $\frac{1}{2}$. The raw key generation rate for a general protocol,
 under zero channel losses is
@@ -568,16 +569,15 @@ Under the same conditions, $\mu$ for SARG04 must then be twice that of BB84 for 
 In practical applications of the protocol this is a serious limitation; also, if Eve is not present then the use of SARG04 over BB84 is penalised
 with no associated benefit.
 
-\subsubsection{Decoy states}
+\subsection{Decoy states}
 Decoy states were first proposed by \citet{decoyOrig} with one- and two-photon signals, with the more popular and realistic
 intensity modulation implementation put forward soon after \citep{lo2005}. The central idea behind decoy states is to randomly
 change some tunable parameter $\xi$ in the protocol (most commonly the photon number/intensity $\mu$); using some subset
 of possible values for the parameter to conduct the protocol itself, Alice and Bob then have a set of linear equations dependent
 on the channel properties.
 
-After transmitting the set of qubits whilst changing $\xi$ randomly, Alice reveals the list of values $\xi \in \chi$,
-and after sorting the data Alice and Bob now have a linear system of $2\abs{\chi}$ equations - in the case of $\xi = \mu$
-these are
+After transmitting the set of qubits, Alice reveals the list of values $\xi \in \chi$,
+and after sorting the data Alice and Bob now have a linear system of $2\abs{\chi}$ equations
 
 \begin{align}
 R^\xi	= \sum_{n\geq0} R^\xi_n
@@ -589,7 +589,84 @@ Q^\xi = \sum_{n\geq 0} \frac{R^\xi_n}{R^\xi}\epsilon_n
 
 If Alice and Bob know the characteristics of their setup, they can determine with high confidence the expected
 $R$ and $Q$ for a particular $\xi$; hence if Eve takes any action that will change either value substantially,
-the participants can detect her presence. This greatly limits her options \citep{lo2005, reviewScariani}
+the participants can detect her presence. This greatly limits her options \citep{lo2005, reviewScariani}.
+
+In order to illustrate the benefits gained with decoy states, consider the concept of optimum $\mu$, a
+variable that only becomes relevant beyond the discussion of ideal single-photon sources (as clearly,
+the secret key rate $K$ scales linearly with $\mu$ in the case of a single photon source \citep{gisin2002}). % TODO: CITE
+The probability for Alice's attenuated laser source to emit either one or two photons is given by
+
+\begin{align}
+	p_A(1) = \mu e^{-\mu}
+	\quad
+	\mathrm{and}
+	\quad
+	p_A(2) = \mu^2 e^{-\frac{\mu}{2}}
+\end{align}
+
+Obviously the ideal situation for security is for $p_A(2) \approx 0$; however this entails small $\mu$ and
+by extension, small $R$. The optimum value for $\mu$ must maximise the achievable secret key rate.
+
+Taking into account imperfect error correction, the definition for the secret key rate is given by
+
+\begin{align}
+	K = R\left[1-\operatorname{leak}_{EC}(Q) - I_E\right]
+\end{align}
+
+where $\operatorname{leak}_{EC}(Q)$ is the information loss due to imperfect error correction (so the leaked information
+$\operatorname{leak}_{EC}(Q) \geq h(Q)$, with $h(Q)$ the binary Shannon entropy); and $I_E$ as usual is the maximal
+information available to Eve \citep{reviewScariani}.
+
+Rather than follow the lengthy derivation, results for optimal $\mu$ for an attenuated laser in the case without, and with,
+decoy states are quoted below from \citet{reviewScariani}.
+
+In the implementation without decoy states, the highest achievable secret key rate is
+\begin{align}
+	\frac{K}{\nu_s t t_B \eta}
+	\approx
+	\frac{1}{2}
+	\mu_{\mathrm{opt}} F(Q)
+	\qquad
+	\text{(laser without decoy states)}
+\end{align}
+obtained for the optimal mean photon number
+\begin{align}
+	\mu_{\mathrm{opt}}
+	\approx
+	t t_B \eta
+	\frac{F(Q)}{1-h(2Q)}
+\end{align}
+where $t$ is the transmittivity of the quantum channel, $t_B$ are the losses in Bob's
+device, $\eta$ is the efficiency of the detector, and $F(Q) = 1 - h(2Q) - h(Q)$.
+
+For the implementation with decoy states, the maximal value for $K$ is
+
+\begin{align}
+	\frac{K}{\nu_s t t_B \eta}
+	\approx
+	\frac{1}{2}
+	\mu_{\mathrm{opt}}
+	\left[1-2h(Q)\right]
+	\qquad
+	\text{(laser with decoy states)}
+\end{align}
+for optimal mean photon number
+\begin{align}
+	\mu_{\mathrm{opt}}
+	\approx
+	\frac{1}{2}
+	\left[
+	1 - \frac{h(Q)}{1-h(Q)}
+	\right]
+\end{align}
+
+Consequently, without decoy states $\mu_{\mathrm{opt}} \propto t$, and hence
+$K \propto t^2$: the larger the losses in the channel, the more attenuated the laser
+must be. For guarding against PNS attacks, it must be ensured that Eve cannot reproduce
+the detection rate at Bob's by using only photons from 2-photon pulses. With decoy states,
+the fraction of detections that come from 2-photon pulses can be determined; if this fraction
+is as low as is expected, a PNS attack can be ruled out. The major benefit gained is the recovery
+of $K \propto t$ scaling. This is the same as for ideal single-photon sources \citep{lo2005, reviewScariani}.
 %------------------------------------------------
 
 
